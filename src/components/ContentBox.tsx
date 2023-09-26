@@ -2,6 +2,7 @@
 
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { CSSProperties, MouseEvent, PropsWithChildren } from "react";
+import { Sparkles } from "./Sparkles";
 
 export function ContentBox({ children }: PropsWithChildren) {
   const mouseX = useMotionValue(0);
@@ -39,7 +40,7 @@ export function ContentBox({ children }: PropsWithChildren) {
         style={{
           background: useMotionTemplate`
           radial-gradient(
-            400px circle at ${mouseX}px ${mouseY}px,
+            200px circle at ${mouseX}px ${mouseY}px,
             rgba(14, 165, 233, 0.15),
             transparent 50%
           )
@@ -47,12 +48,12 @@ export function ContentBox({ children }: PropsWithChildren) {
         }}
       />
       <div>
-        <h3 className="text-base font-semibold leading-7 text-yellow-500">
+        <h3 className="text-base font-semibold leading-7 text-yellow-400">
           Turn your pictures into Van Gogh arts 🖌️🎨
         </h3>
         <div className="mt-2 flex items-center gap-x-2">
           <span className="text-5xl font-bold tracking-tight text-white">
-            Starry
+            <Sparkles>Starry</Sparkles>
           </span>
         </div>
         <p className="mt-6 text-base leading-7 text-gray-300">
