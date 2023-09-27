@@ -17,7 +17,7 @@ export function ContentBox({ children }: PropsWithChildren) {
 
   return (
     <div
-      className="group relative max-w-md rounded-xl border border-white/10 px-8 py-16 shadow-2xl "
+      className="group relative max-w-md rounded-xl  px-8 py-16  "
       onMouseMove={handleMouseMove}
     >
       <motion.div
@@ -25,7 +25,7 @@ export function ContentBox({ children }: PropsWithChildren) {
         style={{
           background: useMotionTemplate`
           radial-gradient(
-            200px circle at ${mouseX}px ${mouseY}px,
+            400px circle at ${mouseX}px ${mouseY}px,
             rgba(14, 165, 233, 0.15),
             transparent 50%
           )
