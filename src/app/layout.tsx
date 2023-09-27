@@ -1,3 +1,4 @@
+import { GithubIcon } from "@/components/Icons/GitHubIcon";
 import { className } from "@/utils/className";
 import { interFont, playfairFont } from "@/utils/fonts";
 import "./globals.css";
@@ -16,6 +17,15 @@ export default function RootLayout({
           interFont.variable
         )}
       >
+        <a
+          href="https://github.com/laurabeatris/starry"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-5 top-5 z-10"
+        >
+          <GithubIcon />
+        </a>
+
         {children}
       </body>
     </html>

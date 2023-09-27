@@ -25,7 +25,7 @@ export function ContentBox({ children }: PropsWithChildren) {
         style={{
           background: useMotionTemplate`
           radial-gradient(
-            400px circle at ${mouseX}px ${mouseY}px,
+            200px circle at ${mouseX}px ${mouseY}px,
             rgba(14, 165, 233, 0.15),
             transparent 50%
           )
