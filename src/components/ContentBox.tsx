@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { CSSProperties, MouseEvent, PropsWithChildren } from "react";
+import { MouseEvent, PropsWithChildren } from "react";
 import { Sparkles } from "./Sparkles";
 
 export function ContentBox({ children }: PropsWithChildren) {
@@ -17,22 +17,7 @@ export function ContentBox({ children }: PropsWithChildren) {
 
   return (
     <div
-      style={
-        {
-          "--background": "23, 37, 84",
-          "--highlight": "255 255 255",
-
-          "--bg-color":
-            "linear-gradient(rgb(var(--background)), rgb(var(--background)))",
-          "--border-color": `linear-gradient(145deg,
-          rgb(var(--highlight)) 0%,
-          rgb(var(--highlight) / 0.3) 33.33%,
-          rgb(var(--highlight) / 0.14) 66.67%,
-          rgb(var(--highlight) / 0.1) 100%)
-        `,
-        } as CSSProperties
-      }
-      className="group relative max-w-md rounded-xl border border-white/10 px-8 py-16 shadow-2xl [background:padding-box_var(--bg-color),border-box_var(--border-color)]"
+      className="group relative max-w-md rounded-xl border border-white/10 px-8 py-16 shadow-2xl "
       onMouseMove={handleMouseMove}
     >
       <motion.div
@@ -47,19 +32,9 @@ export function ContentBox({ children }: PropsWithChildren) {
         `,
         }}
       />
-      <div>
-        <h3 className="text-base font-semibold leading-7 text-yellow-400">
-          Turn your pictures into Van Gogh arts 🖌️🎨
-        </h3>
-        <div className="mt-2 flex items-center gap-x-2">
-          <span className="text-5xl font-bold tracking-tight text-white">
-            <Sparkles>Starry</Sparkles>
-          </span>
-        </div>
-        <p className="mt-6 text-base leading-7 text-gray-300">
-          Upload your image below:
-        </p>
-      </div>
+      <span className="text-9xl text-center font-bold font-display tracking-tight text-white">
+        <Sparkles>{children}</Sparkles>
+      </span>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { className } from "@/utils/className";
+import { interFont, playfairFont } from "@/utils/fonts";
 import "./globals.css";
 
 export default function RootLayout({
@@ -7,7 +9,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-blue-900 flex justify-center items-center h-screen w-screen">
+      <body
+        className={className(
+          "bg-blue-900 flex justify-center items-center h-screen w-screen",
+          playfairFont.variable,
+          interFont.variable
+        )}
+      >
         {children}
       </body>
     </html>
