@@ -1,4 +1,7 @@
-import { CSSProperties, PropsWithChildren, SVGProps } from "react";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { useRandomInterval } from "@/hooks/useRandomInterval";
+import { getNumberSequence } from "@/utils/numbers";
+import { CSSProperties, PropsWithChildren, SVGProps, useState } from "react";
 
 interface SparkleShape {
   id: string;
@@ -56,16 +59,43 @@ function SparkleIcon({ height, width, style, fill }: SparkleIconProps) {
 }
 
 export function Sparkles({ children }: PropsWithChildren) {
-  const sparkle = generateSparkle();
+  const [sparkles, setSparkles] = useState<SparkleShape[]>(() => {
+    return getNumberSequence(1, 4).map(() => generateSparkle());
+  });
+
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  useRandomInterval(
+    () => {
+      const now = Date.now();
+      // Create a new sparkle
+      const sparkle = generateSparkle();
+      // Clean up any "expired" sparkles
+      const nextSparkles = sparkles.filter((sparkle) => {
+        const delta = now - sparkle.createdAt;
+        return delta < 1000;
+      });
+      // Include our new sparkle
+      nextSparkles.push(sparkle);
+      // Make it so!
+      setSparkles(nextSparkles);
+    },
+    prefersReducedMotion ? undefined : 50,
+    prefersReducedMotion ? undefined : 500
+  );
 
   return (
     <span className="relative inline-block">
-      <SparkleIcon
-        fill={sparkle.color}
-        width={sparkle.size}
-        height={sparkle.size}
-        style={sparkle.style}
-      ></SparkleIcon>
+      {sparkles.map((sparkle) => (
+        <SparkleIcon
+          key={sparkle.id}
+          fill={sparkle.color}
+          width={sparkle.size}
+          height={sparkle.size}
+          style={sparkle.style}
+        ></SparkleIcon>
+      ))}
+
       <strong className="relative font-bold z-10">{children}</strong>
     </span>
   );

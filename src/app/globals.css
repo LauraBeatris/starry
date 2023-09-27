@@ -42,6 +42,10 @@ body {
   animation: grow-and-shrink 600ms easy-in-out forwards;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  animation: grow-and-shrink 600ms ease-in-out forwards;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -52,5 +56,9 @@ body {
 }
 
 .spin {
+  animation: spin 600ms linear forwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
   animation: spin 600ms linear forwards;
 }

@@ -3,8 +3,8 @@ import { useCallback, useEffect, useRef } from "react";
 
 export function useRandomInterval(
   callback: () => void,
-  minDelay: number,
-  maxDelay: number
+  minDelay?: number,
+  maxDelay?: number
 ) {
   const timeoutId = useRef<number | undefined>();
   const savedCallback = useRef(callback);

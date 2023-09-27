@@ -17,7 +17,7 @@ export function ContentBox({ children }: PropsWithChildren) {
 
   return (
     <div
-      className="group relative max-w-md rounded-xl  px-8 py-16  "
+      className="group relative rounded-xl px-8 py-16 flex items-center justify-center w-full h-full"
       onMouseMove={handleMouseMove}
     >
       <motion.div
