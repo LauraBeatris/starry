@@ -1,7 +1,16 @@
 import { GithubIcon } from "@/components/Icons/GitHubIcon";
 import { className } from "@/utils/className";
 import { interFont, playfairFont } from "@/utils/fonts";
+import { Metadata } from "next";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Starry",
+  description:
+    "Generate pictures based on Van Gogh arts via AI model. Powered by Vercel and Replicate.",
+  // TODO - Update URL with correct domain
+  metadataBase: new URL("https://starry.vercel.app"),
+};
 
 export default function RootLayout({
   children,
