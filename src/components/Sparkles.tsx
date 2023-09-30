@@ -85,7 +85,7 @@ export function Sparkles({ children }: PropsWithChildren) {
   );
 
   return (
-    <span className="relative inline-block">
+    <span className="w-full h-full relative inline-block">
       {sparkles.map((sparkle) => (
         <SparkleIcon
           key={sparkle.id}

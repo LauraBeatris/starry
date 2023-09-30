@@ -35,7 +35,9 @@ export default function RootLayout({
           <GithubIcon />
         </a>
 
-        {children}
+        <main className="flex min-h-screen w-full flex-col items-center justify-center">
+          {children}
+        </main>
       </body>
     </html>
   );
