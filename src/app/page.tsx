@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/Button";
 import TwitterIcon from "@/components/Icons/TwitterIcon";
 import { RadialGradientBox } from "@/components/RadialGradientBox";
 import { Sparkles } from "@/components/Sparkles";
@@ -29,6 +30,10 @@ export default function Home() {
         <p className="text-center text-white [text-wrap:balance] md:text-xl pt-6 px-4">
           Generate pictures based on Van Gogh arts via AI model.
         </p>
+
+        <div className="mt-6">
+          <Button>Choose a painting</Button>
+        </div>
       </RadialGradientBox>
     </section>
   );
