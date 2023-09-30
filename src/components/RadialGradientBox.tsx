@@ -3,7 +3,7 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { MouseEvent, PropsWithChildren } from "react";
 
-export function ContentBox({ children }: PropsWithChildren) {
+export function RadialGradientBox({ children }: PropsWithChildren) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 

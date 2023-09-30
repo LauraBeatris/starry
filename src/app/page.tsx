@@ -1,13 +1,13 @@
 "use client";
 
-import { ContentBox } from "@/components/ContentBox";
 import TwitterIcon from "@/components/Icons/TwitterIcon";
+import { RadialGradientBox } from "@/components/RadialGradientBox";
 import { Sparkles } from "@/components/Sparkles";
 
 export default function Home() {
   return (
     <section className="w-full h-full flex flex-col justify-center items-center flex-1">
-      <ContentBox>
+      <RadialGradientBox>
         <a
           // TODO - Reference tweet announcement
           href="https://x.com/lauradotjs"
@@ -29,7 +29,7 @@ export default function Home() {
         <p className="text-center text-white [text-wrap:balance] md:text-xl pt-6 px-4">
           Generate pictures based on Van Gogh arts via AI model.
         </p>
-      </ContentBox>
+      </RadialGradientBox>
     </section>
   );
 }
