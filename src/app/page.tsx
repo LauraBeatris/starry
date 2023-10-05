@@ -4,6 +4,7 @@ import { Button } from "@/components/Button";
 import TwitterIcon from "@/components/Icons/TwitterIcon";
 import { RadialGradientBox } from "@/components/RadialGradientBox";
 import { Sparkles } from "@/components/Sparkles";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -34,6 +35,13 @@ export default function Home() {
         <div className="mt-6">
           <Button>Choose a painting</Button>
         </div>
+
+        <Image
+          src={"/images/portait-frame.png"}
+          alt="Picture of the author"
+          width={200}
+          height={200}
+        />
       </RadialGradientBox>
     </section>
   );
