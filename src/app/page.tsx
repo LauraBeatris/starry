@@ -32,7 +32,7 @@ export default function Home() {
         </p>
 
         <div className="mt-6 mb-5">
-          <Button>Choose a painting</Button>
+          <Button>Sign in to start</Button>
         </div>
 
         <div className="relative h-[350px] w-[300px] md:h-[400px] md:w-[400px] lg:w-[400px] lg:h-[400px]">
