@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { MouseEvent, PropsWithChildren } from "react";
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { MouseEvent, PropsWithChildren } from 'react';
 
 export function RadialGradientBox({ children }: PropsWithChildren) {
   const mouseX = useMotionValue(0);

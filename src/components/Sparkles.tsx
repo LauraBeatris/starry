@@ -1,19 +1,20 @@
-"use client";
+'use client';
 
-import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
-import { useRandomInterval } from "@/hooks/useRandomInterval";
-import { getNumberSequence } from "@/utils/numbers";
-import { CSSProperties, PropsWithChildren, SVGProps, useState } from "react";
+import { CSSProperties, PropsWithChildren, SVGProps, useState } from 'react';
+
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { useRandomInterval } from '@/hooks/useRandomInterval';
+import { getNumberSequence } from '@/utils/numbers';
 
 interface SparkleShape {
   id: string;
   size: number;
   color: string;
   createdAt: number;
-  style: Pick<CSSProperties, "top" | "left" | "zIndex">;
+  style: Pick<CSSProperties, 'top' | 'left' | 'zIndex'>;
 }
 
-const DEFAULT_COLOR = "hsl(50deg, 100%, 50%)";
+const DEFAULT_COLOR = 'hsl(50deg, 100%, 50%)';
 
 /**
  * Returns a random number based on a given range
@@ -29,15 +30,15 @@ function generateSparkle(color = DEFAULT_COLOR): SparkleShape {
     color,
     size: getRandomNumber(10, 20),
     style: {
-      top: getRandomNumber(0, 100) + "%",
-      left: getRandomNumber(0, 100) + "%",
+      top: getRandomNumber(0, 100) + '%',
+      left: getRandomNumber(0, 100) + '%',
       zIndex: 20,
     },
   };
 }
 
 interface SparkleIconProps
-  extends Pick<SVGProps<SVGElement>, "style" | "fill" | "width" | "height"> {}
+  extends Pick<SVGProps<SVGElement>, 'style' | 'fill' | 'width' | 'height'> {}
 
 function SparkleIcon({ height, width, style, fill }: SparkleIconProps) {
   return (
@@ -83,7 +84,7 @@ export function Sparkles({ children }: PropsWithChildren) {
       setSparkles(nextSparkles);
     },
     prefersReducedMotion ? undefined : 50,
-    prefersReducedMotion ? undefined : 500
+    prefersReducedMotion ? undefined : 500,
   );
 
   return (

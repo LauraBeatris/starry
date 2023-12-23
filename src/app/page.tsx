@@ -1,8 +1,9 @@
-import { Button } from "@/components/Button";
-import TwitterIcon from "@/components/Icons/TwitterIcon";
-import { RadialGradientBox } from "@/components/RadialGradientBox";
-import { Sparkles } from "@/components/Sparkles";
-import Image from 'next/image'
+import Image from 'next/image';
+
+import { Button } from '@/components/Button';
+import TwitterIcon from '@/components/Icons/TwitterIcon';
+import { RadialGradientBox } from '@/components/RadialGradientBox';
+import { Sparkles } from '@/components/Sparkles';
 
 export default function Home() {
   return (

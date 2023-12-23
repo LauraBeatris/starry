@@ -11,7 +11,7 @@ export function getRandomNumber(min: number, max: number): number {
 export function getNumberSequence(start: number, end: number, step = 1) {
   const output = [];
 
-  if (typeof end === "undefined") {
+  if (typeof end === 'undefined') {
     end = start;
     start = 0;
   }
