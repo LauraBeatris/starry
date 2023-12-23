@@ -1,10 +1,8 @@
-"use client";
-
 import { Button } from "@/components/Button";
 import TwitterIcon from "@/components/Icons/TwitterIcon";
 import { RadialGradientBox } from "@/components/RadialGradientBox";
 import { Sparkles } from "@/components/Sparkles";
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -32,16 +30,13 @@ export default function Home() {
           Generate pictures based on Van Gogh arts via AI model.
         </p>
 
-        <div className="mt-6">
+        <div className="mt-6 mb-5">
           <Button>Choose a painting</Button>
         </div>
 
-        <Image
-          src={"/images/portait-frame.png"}
-          alt="Picture of the author"
-          width={200}
-          height={200}
-        />
+        <div className="relative h-[350px] w-[300px] md:h-[400px] md:w-[400px] lg:w-[400px] lg:h-[400px]">
+          <Image src="/portrait-frame.png" alt="me" fill />
+        </div>
       </RadialGradientBox>
     </section>
   );

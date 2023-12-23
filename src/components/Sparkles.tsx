@@ -1,3 +1,5 @@
+"use client";
+
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { useRandomInterval } from "@/hooks/useRandomInterval";
 import { getNumberSequence } from "@/utils/numbers";
