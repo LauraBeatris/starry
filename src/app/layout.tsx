@@ -3,6 +3,7 @@ import { className } from "@/utils/className";
 import { interFont, playfairFont } from "@/utils/fonts";
 import { Metadata } from "next";
 import "./globals.css";
+import { GitHubHoverCard } from "@/components/GitHubHoverCard";
 
 export const metadata: Metadata = {
   title: "Starry",
@@ -26,14 +27,7 @@ export default function RootLayout({
           interFont.variable
         )}
       >
-        <a
-          href="https://github.com/laurabeatris/starry"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute right-5 top-5 z-10"
-        >
-          <GithubIcon />
-        </a>
+        <GitHubHoverCard />
 
         <main className="flex min-h-screen w-full flex-col items-center justify-center">
           {children}
