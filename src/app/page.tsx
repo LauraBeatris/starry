@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Button } from '@/components/Button';
 import TwitterIcon from '@/components/Icons/TwitterIcon';
 import { PictureFrame } from '@/components/PictureFrame';
@@ -36,10 +38,27 @@ export default function Home() {
 
         <PictureFrame />
 
-        <footer className="mt-auto">
-          <p className="font-display text-yellow-50 text-center [text-wrap:balance] md:text-md pt-6 px-4">
-            Created by Laura Beatris - Powered by <strong>Vercel</strong>,{' '}
-            <strong>WorkOS</strong> and <strong>Replicate</strong>
+        <footer className="flex space-x-1 align-center mt-auto">
+          <p>🎨</p>
+          <p className="font-display text-center [text-wrap:balance] md:text-md">
+            Created by Laura Beatris - Powered by{' '}
+            <strong>
+              <Link href="https://vercel.com" target="_blank">
+                Vercel
+              </Link>
+            </strong>
+            ,{' '}
+            <strong>
+              <Link href="https://workos.com" target="_blank">
+                WorkOS
+              </Link>
+            </strong>{' '}
+            and{' '}
+            <strong>
+              <Link href="https://replicate.com" target="_blank">
+                Replicate
+              </Link>
+            </strong>
           </p>
         </footer>
       </RadialGradientBox>
