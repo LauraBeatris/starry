@@ -10,7 +10,7 @@ export function PictureFrame() {
         fill
       />
 
-      {/* TODO - Use generated picture */}
+      {/* TODO - Use latest generated picture */}
       <Image
         className="z-10"
         src="https://images.unsplash.com/photo-1652420933133-0e0e4675523b?q=80&w=2535&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

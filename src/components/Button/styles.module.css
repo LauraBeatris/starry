@@ -6,11 +6,12 @@
   cursor: pointer;
   outline-offset: 4px;
 }
+
 .front {
   display: block;
   padding: 12px 42px;
   border-radius: 12px;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   background: hsl(345deg 100% 47%);
   color: white;
   transform: translateY(-6px);
