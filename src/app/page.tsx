@@ -14,7 +14,7 @@ export default function Home() {
           href="https://x.com/lauradotjs"
           target="_blank"
           rel="noreferrer"
-          className="mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-white text-sm hover:scale-105 transition duration-300 ease-in-out"
+          className="z-20	mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-white text-sm hover:scale-105 transition duration-300 ease-in-out"
         >
           <TwitterIcon className="h-5 w-5" />
 
