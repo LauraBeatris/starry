@@ -26,6 +26,7 @@ export function GitHubHoverCard() {
       <HoverCard.Portal>
         <HoverCard.Content
           sideOffset={5}
+          collisionPadding={10}
           className={className(
             styles.hoverCardContent,
             'rounded-lg p-5 w-72 bg-white shadow-lg',
