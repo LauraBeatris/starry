@@ -1,8 +1,9 @@
-import { Button } from "@/components/Button";
-import TwitterIcon from "@/components/Icons/TwitterIcon";
-import { RadialGradientBox } from "@/components/RadialGradientBox";
-import { Sparkles } from "@/components/Sparkles";
-import Image from 'next/image'
+import Image from 'next/image';
+
+import { Button } from '@/components/Button';
+import TwitterIcon from '@/components/Icons/TwitterIcon';
+import { RadialGradientBox } from '@/components/RadialGradientBox';
+import { Sparkles } from '@/components/Sparkles';
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
           href="https://x.com/lauradotjs"
           target="_blank"
           rel="noreferrer"
-          className="mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-white text-sm hover:scale-105 transition duration-300 ease-in-out"
+          className="z-20	mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-white text-sm hover:scale-105 transition duration-300 ease-in-out"
         >
           <TwitterIcon className="h-5 w-5" />
 
@@ -31,7 +32,7 @@ export default function Home() {
         </p>
 
         <div className="mt-6 mb-5">
-          <Button>Choose a painting</Button>
+          <Button>Sign in to start</Button>
         </div>
 
         <div className="relative h-[350px] w-[300px] md:h-[400px] md:w-[400px] lg:w-[400px] lg:h-[400px]">

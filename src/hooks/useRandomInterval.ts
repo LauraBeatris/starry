@@ -1,10 +1,11 @@
-import { getRandomNumber } from "@/utils/numbers";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from 'react';
+
+import { getRandomNumber } from '@/utils/numbers';
 
 export function useRandomInterval(
   callback: () => void,
   minDelay?: number,
-  maxDelay?: number
+  maxDelay?: number,
 ) {
   const timeoutId = useRef<number | undefined>();
   const savedCallback = useRef(callback);
@@ -15,7 +16,7 @@ export function useRandomInterval(
 
   useEffect(() => {
     const isEnabled =
-      typeof minDelay === "number" && typeof maxDelay === "number";
+      typeof minDelay === 'number' && typeof maxDelay === 'number';
 
     if (isEnabled) {
       const handleTick = () => {

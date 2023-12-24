@@ -1,15 +1,17 @@
-import { GithubIcon } from "@/components/Icons/GitHubIcon";
-import { className } from "@/utils/className";
-import { interFont, playfairFont } from "@/utils/fonts";
-import { Metadata } from "next";
-import "./globals.css";
+import './globals.css';
+
+import { Metadata } from 'next';
+
+import { GitHubHoverCard } from '@/components/GitHubHoverCard';
+import { className } from '@/utils/className';
+import { interFont, playfairFont } from '@/utils/fonts';
 
 export const metadata: Metadata = {
-  title: "Starry",
+  title: 'Starry',
   description:
-    "Generate pictures based on Van Gogh arts via AI model. Powered by Vercel and Replicate.",
+    'Generate pictures based on Van Gogh arts via AI model. Powered by Vercel and Replicate.',
   // TODO - Update URL with correct domain
-  metadataBase: new URL("https://starry.vercel.app"),
+  metadataBase: new URL('https://starry.vercel.app'),
 };
 
 export default function RootLayout({
@@ -21,19 +23,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={className(
-          "bg-blue-900 flex justify-center items-center h-screen w-screen",
+          'bg-blue-900 flex justify-center items-center h-screen w-screen',
           playfairFont.variable,
-          interFont.variable
+          interFont.variable,
         )}
       >
-        <a
-          href="https://github.com/laurabeatris/starry"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute right-5 top-5 z-10"
-        >
-          <GithubIcon />
-        </a>
+        <GitHubHoverCard />
 
         <main className="flex min-h-screen w-full flex-col items-center justify-center">
           {children}
