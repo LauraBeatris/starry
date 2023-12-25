@@ -2,6 +2,7 @@ import '../globals.css';
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { PropsWithChildren } from 'react';
 
 import { GitHubHoverCard } from '@/app/(main)/_components/GitHubHoverCard';
 import { RadialGradientBox } from '@/components/RadialGradientBox';
@@ -16,11 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://starry.vercel.app'),
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body
