@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
+import { PictureFrame } from '@/app/(main)/_components/PictureFrame';
 import { Button } from '@/components/Button';
 import TwitterIcon from '@/components/Icons/TwitterIcon';
-import { PictureFrame } from '@/components/PictureFrame';
 import { RadialGradientBox } from '@/components/RadialGradientBox';
 import { Sparkles } from '@/components/Sparkles';
 

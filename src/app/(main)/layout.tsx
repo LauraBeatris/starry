@@ -1,8 +1,8 @@
-import './globals.css';
+import '../globals.css';
 
 import { Metadata } from 'next';
 
-import { GitHubHoverCard } from '@/components/GitHubHoverCard';
+import { GitHubHoverCard } from '@/app/(main)/_components/GitHubHoverCard';
 import { className } from '@/utils/className';
 import { interFont, playfairFont } from '@/utils/fonts';
 
