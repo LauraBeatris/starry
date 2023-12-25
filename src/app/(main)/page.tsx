@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { GitHubOAuthButton } from './_components/GitHubOAuthButton';
 import { PictureFrame } from '@/app/(main)/_components/PictureFrame';
 import { Button } from '@/components/Button';
 import TwitterIcon from '@/components/Icons/TwitterIcon';
@@ -33,7 +34,7 @@ export default function Home() {
         </p>
 
         <div className="mt-6 mb-5">
-          <Button>Continue with Google</Button>
+          <GitHubOAuthButton />
         </div>
 
         <PictureFrame />
