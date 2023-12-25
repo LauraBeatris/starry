@@ -1,8 +1,10 @@
 import '../globals.css';
 
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 import { GitHubHoverCard } from '@/app/(main)/_components/GitHubHoverCard';
+import { RadialGradientBox } from '@/components/RadialGradientBox';
 import { className } from '@/utils/className';
 import { interFont, playfairFont } from '@/utils/fonts';
 
@@ -31,7 +33,33 @@ export default function RootLayout({
         <GitHubHoverCard />
 
         <main className="flex min-h-screen w-full flex-col items-center justify-center">
-          {children}
+          <RadialGradientBox>
+            {children}
+
+            <footer className="flex space-x-1 align-center pb-10">
+              <p>🎨</p>
+              <p className="font-display text-center [text-wrap:balance] md:text-md">
+                Created by Laura Beatris - Powered by{' '}
+                <strong>
+                  <Link href="https://vercel.com" target="_blank">
+                    Vercel
+                  </Link>
+                </strong>
+                ,{' '}
+                <strong>
+                  <Link href="https://workos.com" target="_blank">
+                    WorkOS
+                  </Link>
+                </strong>{' '}
+                and{' '}
+                <strong>
+                  <Link href="https://replicate.com" target="_blank">
+                    Replicate
+                  </Link>
+                </strong>
+              </p>
+            </footer>
+          </RadialGradientBox>
         </main>
       </body>
     </html>
