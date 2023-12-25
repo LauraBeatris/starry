@@ -39,21 +39,41 @@ export default function RootLayout({
             <footer className="flex space-x-1 align-center pb-10">
               <p>🎨</p>
               <p className="font-display text-center [text-wrap:balance] md:text-md">
-                Created by Laura Beatris - Powered by{' '}
+                Created by{' '}
+                <Link
+                  className="hover:underline"
+                  href="https://laurabeatris.com"
+                  target="_blank"
+                >
+                  Laura Beatris
+                </Link>{' '}
+                - Powered by{' '}
                 <strong>
-                  <Link href="https://vercel.com" target="_blank">
+                  <Link
+                    className="hover:underline"
+                    href="https://vercel.com"
+                    target="_blank"
+                  >
                     Vercel
                   </Link>
                 </strong>
                 ,{' '}
                 <strong>
-                  <Link href="https://workos.com" target="_blank">
+                  <Link
+                    className="hover:underline"
+                    href="https://workos.com"
+                    target="_blank"
+                  >
                     WorkOS
                   </Link>
                 </strong>{' '}
                 and{' '}
                 <strong>
-                  <Link href="https://replicate.com" target="_blank">
+                  <Link
+                    className="hover:underline"
+                    href="https://replicate.com"
+                    target="_blank"
+                  >
                     Replicate
                   </Link>
                 </strong>
