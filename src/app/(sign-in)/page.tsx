@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { GitHubOAuthButton } from './_components/GitHubOAuthButton';
-import { PictureFrame } from '@/app/(main)/_components/PictureFrame';
+import { PictureFrame } from '@/app/(sign-in)/_components/PictureFrame';
 import { Button } from '@/components/Button';
 import TwitterIcon from '@/components/Icons/TwitterIcon';
 import { RadialGradientBox } from '@/components/RadialGradientBox';

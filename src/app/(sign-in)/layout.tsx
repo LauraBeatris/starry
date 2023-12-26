@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
-import { GitHubHoverCard } from '@/app/(main)/_components/GitHubHoverCard';
+import { GitHubHoverCard } from '@/app/(sign-in)/_components/GitHubHoverCard';
 import { RadialGradientBox } from '@/components/RadialGradientBox';
 import { className } from '@/utils/className';
 import { interFont, playfairFont } from '@/utils/fonts';
