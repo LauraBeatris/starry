@@ -1,13 +1,15 @@
 import Link from 'next/link';
 
-import { GitHubOAuthButton } from './_components/GitHubOAuthButton';
+import { OAuthButton } from './_components/OAuthButton';
 import { PictureFrame } from '@/app/(sign-in)/_components/PictureFrame';
-import { Button } from '@/components/Button';
+import { getGitHubOAuthAuthorizationUrl } from '@/app/auth';
 import TwitterIcon from '@/components/Icons/TwitterIcon';
-import { RadialGradientBox } from '@/components/RadialGradientBox';
 import { Sparkles } from '@/components/Sparkles';
 
+
 export default function Home() {
+  const authorizationUrl = getGitHubOAuthAuthorizationUrl();
+
   return (
     <section className="w-full h-full flex flex-col justify-center items-center flex-1 py-20">
       <a
@@ -33,7 +35,9 @@ export default function Home() {
       </p>
 
       <div className="mt-6 mb-5">
-        <GitHubOAuthButton />
+        <Link href={authorizationUrl}>
+          <OAuthButton />
+        </Link>
       </div>
 
       <PictureFrame />
