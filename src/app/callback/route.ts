@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     if (error instanceof Error) {
       const url = req.nextUrl.clone();
-      
+
       url.searchParams.set('error_message', error.message);
 
       return NextResponse.redirect(url);
