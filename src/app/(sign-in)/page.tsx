@@ -1,17 +1,17 @@
 import Link from 'next/link';
 
-import { OAuthButton } from './_components/OAuthButton';
+import { AuthButton } from './_components/AuthButton';
 import { PictureFrame } from '@/app/(sign-in)/_components/PictureFrame';
-import { getGitHubOAuthAuthorizationUrl } from '@/app/auth';
-import TwitterIcon from '@/components/Icons/TwitterIcon';
+import { getAuthorizationUrl } from '@/app/auth';
+
 export default function Home() {
-  const authorizationUrl = getGitHubOAuthAuthorizationUrl();
+  const authorizationUrl = getAuthorizationUrl();
 
   return (
     <>
       <div className="mt-6 mb-5">
         <Link href={authorizationUrl}>
-          <OAuthButton />
+          <AuthButton />
         </Link>
       </div>
 
