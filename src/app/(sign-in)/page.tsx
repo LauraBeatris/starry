@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
-import { PictureFrame } from '@/app/(sign-in)/_components/PictureFrame';
 import { getAuthorizationUrl } from '@/app/auth';
 
 export default function Home() {
@@ -9,13 +8,11 @@ export default function Home() {
 
   return (
     <>
-      <div className="mt-6 mb-5">
+      <div className="relative mt-6 mb-5 z-10">
         <Link href={authorizationUrl}>
           <AuthButton />
         </Link>
       </div>
-
-      <PictureFrame />
     </>
   );
 }

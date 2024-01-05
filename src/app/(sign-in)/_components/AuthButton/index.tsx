@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import { Button } from '@/components/Button';
+import { SparkleIcon } from '@/components/Icons/SparkleIcon';
 
 export function AuthButton() {
   const [isRedirecting, setIsRedirecting] = useState(false);
@@ -10,9 +11,11 @@ export function AuthButton() {
   return (
     <Button onClick={() => setIsRedirecting(true)}>
       <div className="w-full flex space-x-1 items-center justify-center">
-        <p className="font-medium text-yellow-50">
-          {isRedirecting ? 'Redirecting...' : 'Sign in to continue'}
+        <SparkleIcon />
+        <p className="font-medium text-white">
+          {isRedirecting ? 'Redirecting...' : 'Login to start'}
         </p>
+        <SparkleIcon />
       </div>
     </Button>
   );
