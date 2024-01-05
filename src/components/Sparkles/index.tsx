@@ -2,8 +2,10 @@
 
 import { CSSProperties, PropsWithChildren, SVGProps, useState } from 'react';
 
+import styles from './styles.module.css';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { useRandomInterval } from '@/hooks/useRandomInterval';
+import { className } from '@/utils/className';
 import { getNumberSequence } from '@/utils/numbers';
 
 interface SparkleShape {
@@ -42,14 +44,19 @@ interface SparkleIconProps
 
 function SparkleIcon({ height, width, style, fill }: SparkleIconProps) {
   return (
-    <div className="position pointer-events-none grow-and-shrink">
+    <div
+      className={className(
+        styles.growAndShrink,
+        'position pointer-events-none',
+      )}
+    >
       <svg
         width={width}
         height={height}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 160 160"
-        className="absolute pointer-events-none z-10 spin"
+        className={className(styles.spin, 'absolute pointer-events-none z-10')}
         style={style}
       >
         <path

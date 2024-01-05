@@ -1,5 +1,7 @@
+import { SVGProps } from 'react';
+
 interface GitHubIconProps
-  extends Pick<React.SVGProps<SVGSVGElement>, 'width' | 'height'> {
+  extends Pick<SVGProps<SVGSVGElement>, 'width' | 'height'> {
   className?: string;
 }
 
