@@ -11,7 +11,7 @@
 }
 
 .growAndShrink {
-  animation: grow-and-shrink 600ms easy-in-out forwards;
+  animation: grow-and-shrink 600ms ease-in-out forwards;
 }
 
 @media (prefers-reduced-motion: no-preference) {

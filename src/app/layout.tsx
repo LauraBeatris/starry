@@ -3,7 +3,6 @@ import './globals.css';
 import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 
-import { GitHubHoverCard } from '@/components/GitHubHoverCard';
 import { className } from '@/utils/className';
 import { interFont, playfairFont } from '@/utils/fonts';
 
@@ -26,11 +25,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           interFont.variable,
         )}
       >
-        <GitHubHoverCard />
-
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );

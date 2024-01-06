@@ -12,7 +12,7 @@ export default async function Home() {
     <>
       <section className="z-20 md:bg-starry-illustration bg-cover relative w-screen h-screen flex flex-col justify-center items-center">
         <div className="absolute z-10 w-full h-full bg-gradient-to-t from-[rgba(12,28,110,1)] via-40% via-[rgba(12,28,110,0.4767)] to-[rgba(12,28,110,0)]" />
-        
+
         <header className="z-30">
           <a
             // TODO - Reference tweet announcement
