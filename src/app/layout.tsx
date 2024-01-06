@@ -1,9 +1,9 @@
-import '../globals.css';
+import './globals.css';
 
 import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 
-import { GitHubHoverCard } from '@/app/(sign-in)/_components/GitHubHoverCard';
+import { GitHubHoverCard } from '@/components/GitHubHoverCard';
 import { className } from '@/utils/className';
 import { interFont, playfairFont } from '@/utils/fonts';
 

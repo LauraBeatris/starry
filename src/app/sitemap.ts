@@ -6,6 +6,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: 'https://starry.vercel.app',
       lastModified: new Date().toISOString(),
     },
-    // TODO - Dynamically add URLs for pictures generated, querying from
+    // TODO - Dynamically add URLs for pictures generated, querying from generated arts
   ];
 }
