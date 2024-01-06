@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
+import illustration from './starry-illustration.png'
 import { getAuthorizationUrl } from '@/app/auth';
 import { TwitterIcon } from '@/components/Icons/TwitterIcon';
 import { Sparkles } from '@/components/Sparkles';
@@ -10,8 +12,19 @@ export default async function Home() {
 
   return (
     <>
-      <section className="z-20 md:bg-starry-illustration bg-cover relative w-screen h-screen flex flex-col justify-center items-center">
-        <div className="absolute z-10 w-full h-full bg-gradient-to-t from-[rgba(12,28,110,1)] via-40% via-[rgba(12,28,110,0.4767)] to-[rgba(12,28,110,0)]" />
+      <section className="relative w-screen h-screen flex flex-col justify-center items-center">
+        <Image
+          objectFit="cover"
+          className="z-10"
+          alt="Background"
+          aria-hidden
+          fill
+          priority
+          placeholder="blur"
+          src={illustration}
+        />
+
+        <div className="absolute z-20 w-full h-full bg-gradient-to-t from-[rgba(12,28,110,1)] via-40% via-[rgba(12,28,110,0.4767)] to-[rgba(12,28,110,0)]"></div>
 
         <header className="z-30">
           <a
