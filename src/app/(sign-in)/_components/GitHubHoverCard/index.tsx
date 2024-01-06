@@ -18,7 +18,7 @@ export function GitHubHoverCard() {
           href={gitHubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute right-5 top-5 z-10"
+          className="text-white absolute right-5 top-5 z-10"
         >
           <GithubIcon />
         </a>
