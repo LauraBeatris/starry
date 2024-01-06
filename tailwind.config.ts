@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'starry-illustration': "url('../../public/starry-illustration.png')",
+      },
       colors: {
         'starry-blue': '#0C1C6E',
       },

@@ -5,19 +5,19 @@ import { getAuthorizationUrl } from '@/app/auth';
 import { TwitterIcon } from '@/components/Icons/TwitterIcon';
 import { Sparkles } from '@/components/Sparkles';
 
-export default function Home() {
-  const authorizationUrl = getAuthorizationUrl();
+export default async function Home() {
+  const authorizationUrl = await getAuthorizationUrl();
 
   return (
     <>
-      <section className="z-20 relative w-screen h-screen flex flex-col justify-center items-center">
+      <section className="bg-starry-illustration relative w-screen h-screen flex flex-col justify-center items-center">
         <header>
           <a
             // TODO - Reference tweet announcement
             href="https://x.com/lauradotjs"
             target="_blank"
             rel="noreferrer"
-            className="z-20	mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-yellow-50 text-sm hover:scale-105 transition duration-300 ease-in-out bg-yellow-500"
+            className="mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-yellow-50 text-sm hover:scale-105 transition duration-300 ease-in-out bg-yellow-500"
           >
             <TwitterIcon className="h-5 w-5" />
 
@@ -35,7 +35,7 @@ export default function Home() {
           Generate pictures based on Van Gogh arts via AI model.
         </p>
 
-        <div className="relative mt-6 mb-5 z-10">
+        <div className="relative mt-6 mb-5">
           <Link href={authorizationUrl}>
             <AuthButton />
           </Link>

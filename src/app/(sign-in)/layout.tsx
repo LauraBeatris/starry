@@ -31,7 +31,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       >
         <GitHubHoverCard />
 
-        <main className="p-5">
+        <main>
           <RadialGradientBox>{children}</RadialGradientBox>
         </main>
       </body>
