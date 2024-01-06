@@ -10,8 +10,10 @@ export default async function Home() {
 
   return (
     <>
-      <section className="bg-starry-illustration relative w-screen h-screen flex flex-col justify-center items-center">
-        <header>
+      <section className="z-20 md:bg-starry-illustration bg-cover relative w-screen h-screen flex flex-col justify-center items-center">
+        <div className="absolute z-10 w-full h-full bg-gradient-to-t from-[rgba(12,28,110,1)] via-40% via-[rgba(12,28,110,0.4767)] to-[rgba(12,28,110,0)]" />
+        
+        <header className="z-30">
           <a
             // TODO - Reference tweet announcement
             href="https://x.com/lauradotjs"
@@ -31,11 +33,11 @@ export default async function Home() {
           </span>
         </header>
 
-        <p className="text-center font-light text-white [text-wrap:balance] md:text-xl pt-6 px-4">
+        <p className="z-30 text-center font-light text-white [text-wrap:balance] md:text-xl pt-6 px-4">
           Generate pictures based on Van Gogh arts via AI model.
         </p>
 
-        <div className="relative mt-6 mb-5">
+        <div className="z-30 relative mt-6 mb-5">
           <Link href={authorizationUrl}>
             <AuthButton />
           </Link>
