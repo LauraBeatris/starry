@@ -4,9 +4,6 @@ import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 
 import { GitHubHoverCard } from '@/app/(sign-in)/_components/GitHubHoverCard';
-import { TwitterIcon } from '@/components/Icons/TwitterIcon';
-import { RadialGradientBox } from '@/components/RadialGradientBox';
-import { Sparkles } from '@/components/Sparkles';
 import { className } from '@/utils/className';
 import { interFont, playfairFont } from '@/utils/fonts';
 
@@ -32,7 +29,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <GitHubHoverCard />
 
         <main>
-          <RadialGradientBox>{children}</RadialGradientBox>
+          {children}
         </main>
       </body>
     </html>
