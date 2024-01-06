@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'starry-blue': '#0C1C6E',
+      },
       fontFamily: {
         display: ['var(--font-playfair)'],
         default: ['var(--font-inter)', 'system-ui', 'sans-serif'],

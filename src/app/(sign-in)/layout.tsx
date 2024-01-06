@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   description:
     'Generate pictures based on Van Gogh arts via AI model. Powered by Vercel and Replicate.',
   // TODO - Update URL with correct domain
+  // TODO - Implement OG social image
   metadataBase: new URL('https://starry.vercel.app'),
 };
 
@@ -23,7 +24,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en">
       <body
         className={className(
-          'bg-blue-900 flex justify-center items-center min-h-screen w-screen',
+          'bg-starry-blue flex justify-center items-center min-h-screen w-screen',
           playfairFont.variable,
           interFont.variable,
         )}
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
         <main className="flex min-h-screen w-screen flex-col items-center justify-center">
           <RadialGradientBox>
-            <section className="starry-background z-20 relative w-full h-full flex flex-col justify-center items-center flex-1 py-20">              
+            <section className="z-20 relative w-full h-full flex flex-col justify-center items-center flex-1 py-20">
               <header>
                 <a
                   // TODO - Reference tweet announcement
