@@ -15,10 +15,7 @@ export function RadialGradientBox({ children }: PropsWithChildren) {
   }
 
   return (
-    <div
-      className="group relative rounded-xl flex flex-col items-center justify-center w-full h-full flex-1"
-      onMouseMove={handleMouseMove}
-    >
+    <div className="group relative rounded-xl" onMouseMove={handleMouseMove}>
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
