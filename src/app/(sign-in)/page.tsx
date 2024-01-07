@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
-import illustration from './starry-illustration.png'
+import illustration from './starry-illustration.png';
 import { getAuthorizationUrl } from '@/app/auth';
 import { TwitterIcon } from '@/components/Icons/TwitterIcon';
 import { Sparkles } from '@/components/Sparkles';
@@ -58,11 +58,11 @@ export default async function Home() {
       </section>
       <section className="w-screen h-screen px-10">
         <h2 className="w-[250px] text-white text-4xl [text-wrap:balance] font-display">
-          <Sparkles>How it works?</Sparkles>
+          <Sparkles sizeRange={[1, 12]}>How it works?</Sparkles>
         </h2>
 
-        <h2 className="mt-10 w-[300px] text-white text-4xl [text-wrap:balance] font-display">
-          <Sparkles>User&apos;s gallery</Sparkles>
+        <h2 className="mt-10 w-[240px] text-white text-4xl [text-wrap:balance] font-display">
+          <Sparkles sizeRange={[1, 12]}>User&apos;s gallery</Sparkles>
         </h2>
       </section>
     </>

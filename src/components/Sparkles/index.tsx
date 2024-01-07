@@ -25,12 +25,15 @@ function getRandomNumber(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateSparkle(color = DEFAULT_COLOR): SparkleShape {
+function generateSparkle(
+  sizeRange: [number, number] = [10, 20],
+  color = DEFAULT_COLOR,
+): SparkleShape {
   return {
     id: String(getRandomNumber(10000, 99999)),
     createdAt: Date.now(),
     color,
-    size: getRandomNumber(10, 20),
+    size: getRandomNumber(...sizeRange),
     style: {
       top: getRandomNumber(0, 100) + '%',
       left: getRandomNumber(0, 100) + '%',
@@ -68,9 +71,13 @@ function SparkleIcon({ height, width, style, fill }: SparkleIconProps) {
   );
 }
 
-export function Sparkles({ children }: PropsWithChildren) {
+interface SparkleProps extends PropsWithChildren {
+  sizeRange?: [mininum: number, larger: number];
+}
+
+export function Sparkles({ children, sizeRange }: SparkleProps) {
   const [sparkles, setSparkles] = useState<SparkleShape[]>(() => {
-    return getNumberSequence(1, 4).map(() => generateSparkle());
+    return getNumberSequence(1, 4).map(() => generateSparkle(sizeRange));
   });
 
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -78,16 +85,13 @@ export function Sparkles({ children }: PropsWithChildren) {
   useRandomInterval(
     () => {
       const now = Date.now();
-      // Create a new sparkle
-      const sparkle = generateSparkle();
-      // Clean up any "expired" sparkles
+      const sparkle = generateSparkle(sizeRange);
       const nextSparkles = sparkles.filter((sparkle) => {
         const delta = now - sparkle.createdAt;
         return delta < 1000;
       });
-      // Include our new sparkle
+
       nextSparkles.push(sparkle);
-      // Make it so!
       setSparkles(nextSparkles);
     },
     prefersReducedMotion ? undefined : 50,
