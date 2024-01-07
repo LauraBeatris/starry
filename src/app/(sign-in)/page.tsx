@@ -39,11 +39,11 @@ export default async function Home() {
             <p className="text-sm font-semibold ">Introducing Starry</p>
           </a>
 
-          <span className="text-8xl md:text-9xl text-center font-bold font-display tracking-tight text-yellow-50">
+          <h1 className="text-8xl md:text-9xl text-center font-bold font-display tracking-tight text-white">
             <Sparkles>
               <Sparkles>Starry</Sparkles>
             </Sparkles>
-          </span>
+          </h1>
         </header>
 
         <p className="z-30 text-center font-light text-white [text-wrap:balance] md:text-xl pt-6 px-4">
@@ -56,7 +56,15 @@ export default async function Home() {
           </Link>
         </div>
       </section>
-      <section className="w-screen h-screen" />
+      <section className="w-screen h-screen px-10">
+        <h2 className="w-[250px] text-white text-4xl [text-wrap:balance] font-display">
+          <Sparkles>How it works?</Sparkles>
+        </h2>
+
+        <h2 className="mt-10 w-[300px] text-white text-4xl [text-wrap:balance] font-display">
+          <Sparkles>User&apos;s gallery</Sparkles>
+        </h2>
+      </section>
     </>
   );
 }
