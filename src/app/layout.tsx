@@ -26,6 +26,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
         )}
       >
         <main>{children}</main>
+        <footer className="p-10 flex justify-center">
+          <p className="text-white">Made by Laura Beatris</p>
+        </footer>
       </body>
     </html>
   );
