@@ -28,7 +28,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         )}
       >
         <main>{children}</main>
-        <footer className="relative flex justify-center items-center text-white p-10 gap-1">
+        <footer className="relative flex justify-center items-center text-white p-10 gap-1 border-t border-opacity-10 border-white">
           <p className="inline">Made by</p>
           
           <p>
