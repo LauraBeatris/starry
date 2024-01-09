@@ -1,8 +1,10 @@
 import './globals.css';
 
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
+import { Sparkles } from '@/components/Sparkles';
 import { className } from '@/utils/className';
 import { interFont, playfairFont } from '@/utils/fonts';
 
@@ -26,8 +28,45 @@ export default function RootLayout({ children }: PropsWithChildren) {
         )}
       >
         <main>{children}</main>
-        <footer className="p-10 flex justify-center">
-          <p className="text-white">Made by Laura Beatris</p>
+        <footer className="relative flex justify-center items-center text-white p-10 gap-1">
+          <p className="inline">Made by</p>
+          
+          <p>
+            <Sparkles sizeRange={[1, 10]}>
+              <Link className="font-bold" href="https://twitter.com/lauradotjs">
+                Laura Beatris
+              </Link>
+            </Sparkles>
+          </p>
+          <p>
+            - Powered by{' '}
+            <Link
+              className="font-bold"
+              rel="noreferrer noopener"
+              target="_blank"
+              href="https://vercel.com"
+            >
+              Vercel
+            </Link>
+            ,{' '}
+            <Link
+              className="font-bold"
+              rel="noreferrer noopener"
+              target="_blank"
+              href="https://workos.com"
+            >
+              WorkOS
+            </Link>{' '}
+            and{' '}
+            <Link
+              className="font-bold"
+              rel="noreferrer noopener"
+              target="_blank"
+              href="https://replicate.com/"
+            >
+              Replicate
+            </Link>
+          </p>
         </footer>
       </body>
     </html>
