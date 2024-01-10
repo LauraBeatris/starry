@@ -32,11 +32,11 @@ export default async function Home() {
             href="https://x.com/lauradotjs"
             target="_blank"
             rel="noreferrer"
-            className="mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-yellow-50 text-sm hover:scale-105 transition duration-300 ease-in-out bg-yellow-500"
+            className="mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-yellow-50 text-sm hover:scale-105 transition duration-300 ease-in-out bg-yellow-700"
           >
             <TwitterIcon className="h-5 w-5" />
 
-            <p className="text-sm font-semibold ">Introducing Starry</p>
+            <p className="text-sm font-semibold">Introducing Starry</p>
           </a>
 
           <h1 className="text-8xl md:text-9xl text-center font-bold font-display tracking-tight text-white">

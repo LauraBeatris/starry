@@ -30,10 +30,13 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <main>{children}</main>
         <footer className="relative flex justify-center items-center text-white p-10 gap-1 border-t border-opacity-10 border-white">
           <p className="inline">Made by</p>
-          
+
           <p>
             <Sparkles sizeRange={[1, 10]}>
-              <Link className="font-bold" href="https://twitter.com/lauradotjs">
+              <Link
+                className="hover:underline underline-offset-4 font-bold"
+                href="https://twitter.com/lauradotjs"
+              >
                 Laura Beatris
               </Link>
             </Sparkles>
@@ -41,7 +44,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <p>
             - Powered by{' '}
             <Link
-              className="font-bold"
+              className="hover:underline underline-offset-4 font-bold"
               rel="noreferrer noopener"
               target="_blank"
               href="https://vercel.com"
@@ -50,7 +53,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </Link>
             ,{' '}
             <Link
-              className="font-bold"
+              className="hover:underline underline-offset-4 font-bold"
               rel="noreferrer noopener"
               target="_blank"
               href="https://workos.com"
@@ -59,7 +62,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </Link>{' '}
             and{' '}
             <Link
-              className="font-bold"
+              className="hover:underline underline-offset-4 font-bold"
               rel="noreferrer noopener"
               target="_blank"
               href="https://replicate.com/"
