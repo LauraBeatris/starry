@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { AuthButton } from './_components/AuthButton';
 import illustration from './starry-illustration.png';
 import { getAuthorizationUrl } from '@/app/auth';
+import { SparkleIcon } from '@/components/Icons/SparkleIcon';
 import { TwitterIcon } from '@/components/Icons/TwitterIcon';
 import { Sparkles } from '@/components/Sparkles';
 
@@ -32,7 +33,7 @@ export default async function Home() {
             href="https://x.com/lauradotjs"
             target="_blank"
             rel="noreferrer"
-            className="mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-yellow-50 text-sm hover:scale-105 transition duration-300 ease-in-out bg-yellow-700"
+            className="mx-auto flex max-w-fit animate-fade-up items-center justify-center space-x-2 overflow-hidden border rounded-2xl py-1 px-4 text-yellow-50 text-sm hover:scale-105 transition duration-300 ease-in-out bg-yellow-600"
           >
             <TwitterIcon className="h-5 w-5" />
 
@@ -57,13 +58,25 @@ export default async function Home() {
         </div>
       </section>
       <section className="w-screen h-screen px-10">
-        <h2 className="w-[250px] text-white text-4xl [text-wrap:balance] font-display">
-          <Sparkles sizeRange={[1, 12]}>How it works?</Sparkles>
-        </h2>
+        <div className="relative">
+          <span className="absolute bottom-0" aria-hidden>
+            <SparkleIcon className="fill-yellow-500" />
+          </span>
 
-        <h2 className="mt-10 w-[240px] text-white text-4xl [text-wrap:balance] font-display">
-          <Sparkles sizeRange={[1, 12]}>User&apos;s gallery</Sparkles>
-        </h2>
+          <h2 className="pl-3 inline w-[250px] text-white text-4xl [text-wrap:balance] font-display">
+            How it works?
+          </h2>
+        </div>
+
+        <div className="mt-10 w-[240px] relative">
+          <span className="absolute bottom-0" aria-hidden>
+            <SparkleIcon className="fill-yellow-500" />
+          </span>
+
+          <h2 className="pl-3 text-white text-4xl [text-wrap:balance] font-display">
+            User&apos;s gallery
+          </h2>
+        </div>
       </section>
     </>
   );
