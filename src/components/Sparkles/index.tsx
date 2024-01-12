@@ -59,7 +59,7 @@ function SparkleIcon({ height, width, style, fill }: SparkleIconProps) {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 160 160"
-        className={className(styles.spin, 'absolute pointer-events-none z-10')}
+        className={className(styles.spin, 'pointer-events-none absolute z-10')}
         style={style}
       >
         <path
@@ -99,7 +99,7 @@ export function Sparkles({ children, sizeRange }: SparkleProps) {
   );
 
   return (
-    <span className="w-full h-full relative inline-block">
+    <span className="relative inline-block h-full w-full">
       {sparkles.map((sparkle) => (
         <SparkleIcon
           key={sparkle.id}
@@ -110,7 +110,7 @@ export function Sparkles({ children, sizeRange }: SparkleProps) {
         ></SparkleIcon>
       ))}
 
-      <strong className="relative font-bold z-10">{children}</strong>
+      <strong className="relative z-10 font-bold">{children}</strong>
     </span>
   );
 }

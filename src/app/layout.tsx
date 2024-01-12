@@ -28,13 +28,13 @@ export default function RootLayout({ children }: PropsWithChildren) {
         )}
       >
         <main>{children}</main>
-        <footer className="relative flex justify-center items-center text-white p-10 gap-1 border-t border-opacity-10 border-white">
+        <footer className="relative flex items-center justify-center gap-1 border-t border-white border-opacity-10 p-10 text-white">
           <p className="inline">Made by</p>
 
           <p>
             <Sparkles sizeRange={[1, 10]}>
               <Link
-                className="hover:underline underline-offset-4 font-bold"
+                className="font-bold underline-offset-4 hover:underline"
                 href="https://twitter.com/lauradotjs"
               >
                 Laura Beatris
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <p>
             - Powered by{' '}
             <Link
-              className="hover:underline underline-offset-4 font-bold"
+              className="font-bold underline-offset-4 hover:underline"
               rel="noreferrer noopener"
               target="_blank"
               href="https://vercel.com"
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </Link>
             ,{' '}
             <Link
-              className="hover:underline underline-offset-4 font-bold"
+              className="font-bold underline-offset-4 hover:underline"
               rel="noreferrer noopener"
               target="_blank"
               href="https://workos.com"
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </Link>{' '}
             and{' '}
             <Link
-              className="hover:underline underline-offset-4 font-bold"
+              className="font-bold underline-offset-4 hover:underline"
               rel="noreferrer noopener"
               target="_blank"
               href="https://replicate.com/"

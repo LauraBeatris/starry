@@ -10,9 +10,9 @@ export function AuthButton() {
 
   return (
     <Button onClick={() => setIsRedirecting(true)}>
-      <div className="w-full flex space-x-1 items-center justify-center">
+      <div className="flex w-full items-center justify-center space-x-1">
         <SparkleIcon />
-        <p className="font-medium text-white md:tex-lg">
+        <p className="md:tex-lg font-medium text-white">
           {isRedirecting ? 'Redirecting...' : 'Login to start'}
         </p>
         <SparkleIcon />
