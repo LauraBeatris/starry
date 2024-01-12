@@ -68,6 +68,14 @@ export default async function Home() {
           </h2>
         </div>
 
+        <ul className="flex gap-2">
+          <li className="text-4xl text-yellow-400 font-display">1</li>
+
+          <li className="text-4xl text-yellow-400 font-display">2</li>
+
+          <li className="text-4xl text-yellow-400 font-display">3</li>
+        </ul>
+
         <div className="mt-10 w-[240px] relative">
           <span className="absolute bottom-0" aria-hidden>
             <SparkleIcon className="fill-yellow-500" />
