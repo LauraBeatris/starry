@@ -57,7 +57,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
-      <section className="h-screen w-screen px-10">
+      <section className="w-screen px-10 pb-10">
         <div className="relative">
           <span className="absolute bottom-0" aria-hidden>
             <SparkleIcon className="fill-yellow-500" />
@@ -92,7 +92,7 @@ export default async function Home() {
         </ul>
 
         <div className="relative mt-10 w-[240px]">
-          <span className="absolute bottom-0" aria-hidden>
+          <span className="absolute right-0 top-0" aria-hidden>
             <SparkleIcon className="fill-yellow-500" />
           </span>
 
