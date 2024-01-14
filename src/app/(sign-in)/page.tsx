@@ -68,25 +68,25 @@ export default async function Home() {
           </h2>
         </div>
 
-        <ul className="flex gap-10">
+        <ul className="flex justify-between gap-10 pl-4 pt-4">
           <li className="flex items-start gap-2">
             <span className="font-display text-4xl text-yellow-400">1.</span>
-            <p className="pt-4 text-white w-[200px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            <p className="w-[250px] pt-4 text-white">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </li>
 
           <li className="flex items-start gap-2">
             <span className="font-display text-4xl text-yellow-400">2.</span>
-            <p className="pt-4 text-white w-[200px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            <p className="w-[250px] pt-4 text-white">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </li>
 
           <li className="flex items-start gap-2">
             <span className="font-display text-4xl text-yellow-400">3.</span>
-            <p className="pt-4 text-white w-[200px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            <p className="w-[250px] pt-4 text-white">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </li>
         </ul>
