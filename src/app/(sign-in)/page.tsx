@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
-import illustration from './starry-illustration.png';
+import illustration from './_images/starry-illustration.png';
 import { getAuthorizationUrl } from '@/app/auth';
 import { SparkleIcon } from '@/components/Icons/SparkleIcon';
 import { TwitterIcon } from '@/components/Icons/TwitterIcon';
