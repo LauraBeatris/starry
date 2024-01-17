@@ -57,7 +57,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
-      <section className="w-screen px-10 pb-10">
+      <section className="container mx-auto px-10 pb-10">
         <div className="relative">
           <span className="absolute bottom-0" aria-hidden>
             <SparkleIcon className="fill-yellow-500" />
