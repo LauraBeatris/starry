@@ -25,37 +25,15 @@ export default async function Home() {
           src={illustration}
         />
 
-        <div className="absolute z-20 h-full w-full bg-gradient-to-t from-[rgba(12,28,110,1)] via-[rgba(12,28,110,0.4767)] via-40% to-[rgba(12,28,110,0)]"></div>
+        <BackgroundGradient />
 
-        <header className="z-30">
-          <a
-            // TODO - Reference tweet announcement
-            href="https://x.com/lauradotjs"
-            target="_blank"
-            rel="noreferrer"
-            className="animate-fade-up mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-2xl border bg-yellow-600 px-4 py-1 text-sm text-yellow-50 transition duration-300 ease-in-out hover:scale-105"
-          >
-            <TwitterIcon className="h-5 w-5" />
-
-            <p className="text-sm font-semibold">Introducing Starry</p>
-          </a>
-
-          <h1 className="text-center font-display text-8xl font-bold tracking-tight text-white md:text-9xl">
-            <Sparkles>
-              <Sparkles>Starry</Sparkles>
-            </Sparkles>
-          </h1>
-        </header>
+        <Header />
 
         <p className="z-30 px-4 pt-6 text-center font-light text-white [text-wrap:balance] md:text-xl">
           Generate pictures based on Van Gogh arts via AI model.
         </p>
 
-        <div className="relative z-30 mb-5 mt-6">
-          <Link href={authorizationUrl}>
-            <AuthButton />
-          </Link>
-        </div>
+        <AuthenticationLink />
       </section>
 
       <section className="container mx-auto flex flex-col items-center px-10 pb-10 md:items-start">
@@ -69,28 +47,7 @@ export default async function Home() {
           </h2>
         </div>
 
-        <ul className="flex w-full flex-col items-center justify-between gap-10 pt-4 md:flex-row md:pl-4">
-          <li className="flex w-9/12 items-start gap-2 md:w-min">
-            <span className="font-display text-4xl text-yellow-400">1.</span>
-            <p className="w-[250px] pt-4 text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </li>
-
-          <li className="flex w-9/12 items-start gap-2 md:w-min">
-            <span className="font-display text-4xl text-yellow-400">2.</span>
-            <p className="w-[250px] pt-4 text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </li>
-
-          <li className="flex w-9/12 items-start gap-2 md:w-min">
-            <span className="font-display text-4xl text-yellow-400">3.</span>
-            <p className="w-[250px] pt-4 text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </li>
-        </ul>
+        <HowItWorksList />
 
         <div className="relative mx-auto mt-10 w-[240px] md:mx-0">
           <span className="absolute right-0 top-0" aria-hidden>
@@ -103,5 +60,74 @@ export default async function Home() {
         </div>
       </section>
     </>
+  );
+}
+
+function BackgroundGradient() {
+  return (
+    <div className="absolute z-20 h-full w-full bg-gradient-to-t from-[rgba(12,28,110,1)] via-[rgba(12,28,110,0.4767)] via-40% to-[rgba(12,28,110,0)]"></div>
+  );
+}
+
+function HowItWorksList() {
+  return (
+    <ul className="flex w-full flex-col items-center justify-between gap-10 pt-4 md:flex-row md:pl-4">
+      <li className="flex w-9/12 items-start gap-2 md:w-min">
+        <span className="font-display text-4xl text-yellow-400">1.</span>
+        <p className="w-[250px] pt-4 text-white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </li>
+
+      <li className="flex w-9/12 items-start gap-2 md:w-min">
+        <span className="font-display text-4xl text-yellow-400">2.</span>
+        <p className="w-[250px] pt-4 text-white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </li>
+
+      <li className="flex w-9/12 items-start gap-2 md:w-min">
+        <span className="font-display text-4xl text-yellow-400">3.</span>
+        <p className="w-[250px] pt-4 text-white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </li>
+    </ul>
+  );
+}
+
+async function AuthenticationLink() {
+  const authorizationUrl = await getAuthorizationUrl();
+
+  return (
+    <div className="relative z-30 mb-5 mt-6">
+      <Link href={authorizationUrl}>
+        <AuthButton />
+      </Link>
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <header className="z-30">
+      <a
+        // TODO - Reference tweet announcement
+        href="https://x.com/lauradotjs"
+        target="_blank"
+        rel="noreferrer"
+        className="animate-fade-up mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-2xl border bg-yellow-600 px-4 py-1 text-sm text-yellow-50 transition duration-300 ease-in-out hover:scale-105"
+      >
+        <TwitterIcon className="h-5 w-5" />
+
+        <p className="text-sm font-semibold">Introducing Starry</p>
+      </a>
+
+      <h1 className="text-center font-display text-8xl font-bold tracking-tight text-white md:text-9xl">
+        <Sparkles>
+          <Sparkles>Starry</Sparkles>
+        </Sparkles>
+      </h1>
+    </header>
   );
 }
