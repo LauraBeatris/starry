@@ -57,8 +57,9 @@ export default async function Home() {
           </Link>
         </div>
       </section>
-      <section className="container mx-auto px-10 pb-10">
-        <div className="relative">
+
+      <section className="container mx-auto flex flex-col items-center px-10 pb-10 md:items-start">
+        <div className="relative flex justify-center lg:justify-start">
           <span className="absolute bottom-0" aria-hidden>
             <SparkleIcon className="fill-yellow-500" />
           </span>
@@ -68,22 +69,22 @@ export default async function Home() {
           </h2>
         </div>
 
-        <ul className="flex justify-between gap-10 pl-4 pt-4">
-          <li className="flex items-start gap-2">
+        <ul className="flex w-full flex-col items-center justify-between gap-10 pt-4 md:flex-row md:pl-4">
+          <li className="flex w-9/12 items-start gap-2 md:w-min">
             <span className="font-display text-4xl text-yellow-400">1.</span>
             <p className="w-[250px] pt-4 text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </li>
 
-          <li className="flex items-start gap-2">
+          <li className="flex w-9/12 items-start gap-2 md:w-min">
             <span className="font-display text-4xl text-yellow-400">2.</span>
             <p className="w-[250px] pt-4 text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </li>
 
-          <li className="flex items-start gap-2">
+          <li className="flex w-9/12 items-start gap-2 md:w-min">
             <span className="font-display text-4xl text-yellow-400">3.</span>
             <p className="w-[250px] pt-4 text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -91,7 +92,7 @@ export default async function Home() {
           </li>
         </ul>
 
-        <div className="relative mt-10 w-[240px]">
+        <div className="relative mx-auto mt-10 w-[240px] md:mx-0">
           <span className="absolute right-0 top-0" aria-hidden>
             <SparkleIcon className="fill-yellow-500" />
           </span>

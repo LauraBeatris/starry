@@ -28,21 +28,24 @@ export default function RootLayout({ children }: PropsWithChildren) {
         )}
       >
         <main>{children}</main>
-        <footer className="relative flex items-center justify-center gap-1 border-t border-white border-opacity-10 p-10 text-white">
-          <p className="inline">Made by</p>
+        <footer className="relative flex items-center justify-center gap-1 border-t border-white border-opacity-10 p-4 text-white md:p-10">
+          <p className="md:flex md:gap-1">
+            <span>Made by</span>
 
-          <p>
-            <Sparkles sizeRange={[1, 10]}>
-              <Link
-                className="font-bold underline-offset-4 hover:underline"
-                href="https://twitter.com/lauradotjs"
-              >
-                Laura Beatris
-              </Link>
-            </Sparkles>
+            <span>
+              <Sparkles sizeRange={[1, 10]}>
+                <Link
+                  className="font-bold underline-offset-4 hover:underline"
+                  href="https://twitter.com/lauradotjs"
+                >
+                  Laura Beatris
+                </Link>
+              </Sparkles>
+            </span>
           </p>
-          <p>
-            - Powered by{' '}
+
+          <p className="text-right">
+            <span className="invisible md:visible">-</span> Powered by{' '}
             <Link
               className="font-bold underline-offset-4 hover:underline"
               rel="noreferrer noopener"
