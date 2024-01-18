@@ -29,7 +29,7 @@ export default async function Home() {
 
         <Header />
 
-        <p className="z-30 px-4 pt-6 text-center font-light text-white [text-wrap:balance] md:text-xl">
+        <p className="z-30 px-4 pt-6 text-center font-light text-yellow-50 [text-wrap:balance] md:text-2xl">
           Generate pictures based on Van Gogh arts via AI model.
         </p>
 
@@ -116,14 +116,14 @@ function Header() {
         href="https://x.com/lauradotjs"
         target="_blank"
         rel="noreferrer"
-        className="animate-fade-up mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-2xl border bg-yellow-600 px-4 py-1 text-sm text-yellow-50 transition duration-300 ease-in-out hover:scale-105"
+        className="animate-fade-up mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-2xl border bg-yellow-500 px-4 py-1 text-sm text-yellow-50 transition duration-300 ease-in-out hover:scale-105"
       >
         <TwitterIcon className="h-5 w-5" />
 
         <p className="text-sm font-semibold">Introducing Starry</p>
       </a>
 
-      <h1 className="text-center font-display text-8xl font-bold tracking-tight text-white md:text-9xl">
+      <h1 className="text-center font-display text-8xl font-bold tracking-tight text-yellow-50 md:text-9xl">
         <Sparkles>
           <Sparkles>Starry</Sparkles>
         </Sparkles>
