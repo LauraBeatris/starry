@@ -2,27 +2,37 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
-import illustration from './_images/starry-illustration.png';
+import desktopIllustration from './_images/starry-desktop-illustration.png';
+import mobileIllustration from './_images/starry-mobile-illustration.png';
 import { getAuthorizationUrl } from '@/app/auth';
 import { SparkleIcon } from '@/components/Icons/SparkleIcon';
 import { TwitterIcon } from '@/components/Icons/TwitterIcon';
 import { Sparkles } from '@/components/Sparkles';
 
-export default async function Home() {
-  const authorizationUrl = await getAuthorizationUrl();
-
+export default function Home() {
   return (
     <>
       <section className="relative flex h-screen w-screen flex-col items-center justify-center">
         <Image
           objectFit="cover"
-          className="z-10"
+          className="invisible z-10 opacity-50 md:visible"
           alt="Background"
           aria-hidden
           fill
           priority
           placeholder="blur"
-          src={illustration}
+          src={desktopIllustration}
+        />
+
+        <Image
+          objectFit="cover"
+          className="visible z-10 opacity-50 md:invisible"
+          alt="Background"
+          aria-hidden
+          fill
+          priority
+          placeholder="blur"
+          src={mobileIllustration}
         />
 
         <BackgroundGradient />
@@ -116,7 +126,7 @@ function Header() {
         href="https://x.com/lauradotjs"
         target="_blank"
         rel="noreferrer"
-        className="animate-fade-up mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-2xl border bg-yellow-500 px-4 py-1 text-sm text-yellow-50 transition duration-300 ease-in-out hover:scale-105"
+        className="animate-fade-up mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-2xl border bg-white px-4 py-1 text-sm text-black transition duration-300 ease-in-out hover:scale-105"
       >
         <TwitterIcon className="h-5 w-5" />
 
