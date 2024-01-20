@@ -1,14 +1,13 @@
 import './globals.css';
-import '../serverEnvSchema';
 
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
 import { className } from '@/app/lib/className';
 import { interFont, playfairFont } from '@/app/lib/fonts';
 import { Sparkles } from '@/app/ui/Sparkles';
+import '@/app/lib/serverEnvSchema';
 
 export const metadata: Metadata = {
   title: 'Starry',
