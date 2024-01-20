@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { AuthButton } from './_components/AuthButton';
 import desktopIllustration from './_images/starry-desktop-illustration.png';
 import mobileIllustration from './_images/starry-mobile-illustration.png';
-import { getAuthorizationUrl } from '@/app/auth';
+import { getAuthorizationUrl } from '@/app/lib/auth';
 import { SparkleIcon } from '@/components/Icons/SparkleIcon';
 import { TwitterIcon } from '@/components/Icons/TwitterIcon';
 import { Sparkles } from '@/components/Sparkles';
