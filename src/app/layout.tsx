@@ -1,5 +1,5 @@
 import './globals.css';
-import '../serverEnvSchema'
+import '../serverEnvSchema';
 
 import { Metadata } from 'next';
 import Link from 'next/link';

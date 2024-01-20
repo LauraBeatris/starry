@@ -9,7 +9,7 @@ import { SparkleIcon } from '@/components/Icons/SparkleIcon';
 import { TwitterIcon } from '@/components/Icons/TwitterIcon';
 import { Sparkles } from '@/components/Sparkles';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <section className="relative flex h-screen w-screen flex-col items-center justify-center">
