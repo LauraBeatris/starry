@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-import { Button } from '@/components/Button';
-import { SparkleIcon } from '@/components/Icons/SparkleIcon';
+import { Button } from '@/app/ui/Button';
+import { SparkleIcon } from '@/app/ui/Icons/SparkleIcon';
 
 export function AuthButton() {
   const [isRedirecting, setIsRedirecting] = useState(false);

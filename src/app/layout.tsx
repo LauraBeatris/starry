@@ -2,12 +2,13 @@ import './globals.css';
 import '../serverEnvSchema';
 
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
-import { Sparkles } from '@/components/Sparkles';
-import { className } from '@/utils/className';
-import { interFont, playfairFont } from '@/utils/fonts';
+import { className } from '@/app/lib/className';
+import { interFont, playfairFont } from '@/app/lib/fonts';
+import { Sparkles } from '@/app/ui/Sparkles';
 
 export const metadata: Metadata = {
   title: 'Starry',
@@ -28,6 +29,28 @@ export default function RootLayout({ children }: PropsWithChildren) {
           interFont.variable,
         )}
       >
+        <Image
+          objectFit="cover"
+          className="invisible z-10 opacity-50 md:visible"
+          alt="Background"
+          aria-hidden
+          fill
+          priority
+          src="/desktop-background.png"
+        />
+
+        <Image
+          objectFit="cover"
+          className="visible z-10 opacity-50 md:invisible"
+          alt="Background"
+          aria-hidden
+          fill
+          priority
+          src="/mobile-background.png"
+        />
+
+        <BackgroundGradient />
+
         <main>{children}</main>
         <footer className="relative flex items-center justify-center gap-1 border-t border-white border-opacity-10 p-4 text-white md:p-10">
           <p className="md:flex md:gap-1">
@@ -77,5 +100,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
         </footer>
       </body>
     </html>
+  );
+}
+
+function BackgroundGradient() {
+  return (
+    <div className="absolute z-20 h-full w-full bg-gradient-to-t from-[rgba(12,28,110,1)] via-[rgba(12,28,110,0.4767)] via-40% to-[rgba(12,28,110,0)]"></div>
   );
 }

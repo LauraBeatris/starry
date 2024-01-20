@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
     url.searchParams.delete('code');
     url.pathname = '/generate-image';
 
-    const response = NextResponse.redirect(url)
+    const response = NextResponse.redirect(url);
 
     response.cookies.set({
       name: 'token',

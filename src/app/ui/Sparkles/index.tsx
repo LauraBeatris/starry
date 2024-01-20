@@ -3,10 +3,10 @@
 import { CSSProperties, PropsWithChildren, SVGProps, useState } from 'react';
 
 import styles from './styles.module.css';
-import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
-import { useRandomInterval } from '@/hooks/useRandomInterval';
-import { className } from '@/utils/className';
-import { getNumberSequence } from '@/utils/numbers';
+import { className } from '@/app/lib/className';
+import { usePrefersReducedMotion } from '@/app/lib/hooks/usePrefersReducedMotion';
+import { useRandomInterval } from '@/app/lib/hooks/useRandomInterval';
+import { getNumberSequence } from '@/app/lib/numbers';
 
 interface SparkleShape {
   id: string;

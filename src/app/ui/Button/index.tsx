@@ -1,7 +1,7 @@
 import { ComponentProps, PropsWithChildren } from 'react';
 
 import styles from './styles.module.css';
-import { className } from '@/utils/className';
+import { className } from '@/app/lib/className';
 
 interface ButtonProps extends Pick<ComponentProps<'button'>, 'onClick'> {}
 

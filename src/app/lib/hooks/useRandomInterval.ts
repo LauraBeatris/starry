@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-import { getRandomNumber } from '@/utils/numbers';
+import { getRandomNumber } from '@/app/lib/numbers';
 
 export function useRandomInterval(
   callback: () => void,

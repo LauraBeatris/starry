@@ -1,42 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { AuthButton } from './_components/AuthButton';
-import desktopIllustration from './_images/starry-desktop-illustration.png';
-import mobileIllustration from './_images/starry-mobile-illustration.png';
 import { getAuthorizationUrl } from '@/app/lib/auth';
-import { SparkleIcon } from '@/components/Icons/SparkleIcon';
-import { TwitterIcon } from '@/components/Icons/TwitterIcon';
-import { Sparkles } from '@/components/Sparkles';
+import { AuthButton } from '@/app/ui/Button/AuthButton';
+import { SparkleIcon } from '@/app/ui/Icons/SparkleIcon';
+import { TwitterIcon } from '@/app/ui/Icons/TwitterIcon';
+import { Sparkles } from '@/app/ui/Sparkles';
 
 export default function HomePage() {
   return (
     <>
       <section className="relative flex h-screen w-screen flex-col items-center justify-center">
-        <Image
-          objectFit="cover"
-          className="invisible z-10 opacity-50 md:visible"
-          alt="Background"
-          aria-hidden
-          fill
-          priority
-          placeholder="blur"
-          src={desktopIllustration}
-        />
-
-        <Image
-          objectFit="cover"
-          className="visible z-10 opacity-50 md:invisible"
-          alt="Background"
-          aria-hidden
-          fill
-          priority
-          placeholder="blur"
-          src={mobileIllustration}
-        />
-
-        <BackgroundGradient />
-
         <Header />
 
         <p className="z-30 px-4 pt-6 text-center font-light text-yellow-50 [text-wrap:balance] md:text-2xl">
@@ -70,12 +44,6 @@ export default function HomePage() {
         </div>
       </section>
     </>
-  );
-}
-
-function BackgroundGradient() {
-  return (
-    <div className="absolute z-20 h-full w-full bg-gradient-to-t from-[rgba(12,28,110,1)] via-[rgba(12,28,110,0.4767)] via-40% to-[rgba(12,28,110,0)]"></div>
   );
 }
 
