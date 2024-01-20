@@ -1,4 +1,4 @@
-import { getUser } from '@/app/auth';
+import { getUser } from '@/app/lib/auth';
 
 export default async function GenerateImagePage() {
   const { isAuthenticated } = await getUser();

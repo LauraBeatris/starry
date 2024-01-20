@@ -2,7 +2,7 @@ import { WorkOS } from '@workos-inc/node';
 import { SignJWT } from 'jose';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { getJwtSecretKey } from '@/app/auth';
+import { getJwtSecretKey } from '@/app/lib/auth';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 const clientId = process.env.WORKOS_CLIENT_ID;

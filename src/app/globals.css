@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.starry-background {
+  background-color: #0C1C6E;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.starry-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to top, rgba(12,28,110,1), rgba(12,28,110,0.4767) 40%, rgba(12,28,110,0)), url('/mobile-background.png');
+  opacity: 0.5; 
+}
+
+@media (min-width: theme('screens.md')) {
+  .starry-background::before {
+    background-image: linear-gradient(to top, rgba(12,28,110,1), rgba(12,28,110,0.4767) 40%, rgba(12,28,110,0)), url('/desktop-background.png');
+  }
+}
