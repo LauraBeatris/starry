@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
@@ -20,18 +21,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
-      <body
-        className={className(
-          'starry-background',
-          playfairFont.variable,
-          interFont.variable,
-        )}
-      >
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <>
+      <SpeedInsights />
+      <html lang="en">
+        <body
+          className={className(
+            'starry-background',
+            playfairFont.variable,
+            interFont.variable,
+          )}
+        >
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </>
   );
 }
 
