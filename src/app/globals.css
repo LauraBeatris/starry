@@ -23,7 +23,7 @@
       rgba(12, 28, 110, 0)
     ),
     url('/mobile-background.png');
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 @media (min-width: theme('screens.md')) {
