@@ -7,7 +7,6 @@ import { PropsWithChildren } from 'react';
 
 import { className } from '@/app/lib/className';
 import { interFont, playfairFont } from '@/app/lib/fonts';
-import { TwitterIcon } from '@/app/ui/Icons/TwitterIcon';
 import { Sparkles } from '@/app/ui/Sparkles';
 
 import '@/app/lib/serverEnvSchema';
@@ -50,18 +49,6 @@ function Header() {
   return (
     <header className="relative flex flex-col items-center justify-center">
       <div className="z-30">
-        <a
-          // TODO - Reference tweet announcement
-          href="https://x.com/lauradotjs"
-          target="_blank"
-          rel="noreferrer"
-          className="animate-fade-up mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-2xl border bg-white px-4 py-1 text-sm text-black transition duration-300 ease-in-out hover:scale-105"
-        >
-          <TwitterIcon className="h-5 w-5" />
-
-          <p className="text-sm font-semibold">Introducing Starry</p>
-        </a>
-
         <h1 className="text-center font-display text-8xl font-bold tracking-tight text-yellow-50 md:text-9xl">
           <Sparkles>
             <Sparkles>Starry</Sparkles>
@@ -78,8 +65,8 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="relative flex items-center justify-center gap-1 border-t border-white border-opacity-10 p-4 text-white md:p-10">
-      <p className="md:flex md:gap-1">
+    <footer className="relative flex flex-col items-center justify-center border-t border-white border-opacity-10 p-4 text-white md:flex-row md:gap-1 md:p-10">
+      <p className="flex gap-1">
         <span>Made by</span>
 
         <span>
@@ -94,7 +81,7 @@ function Footer() {
         </span>
       </p>
 
-      <p className="text-right">
+      <p>
         <span className="invisible md:visible">-</span> Powered by{' '}
         <Link
           className="font-bold underline-offset-4 hover:underline"

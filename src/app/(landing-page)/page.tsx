@@ -21,8 +21,6 @@ export default function HomePage() {
         </div>
 
         <HowItWorksList />
-
-        <UsersGallery />
       </section>
     </>
   );
@@ -64,19 +62,5 @@ function HowItWorksList() {
         </p>
       </li>
     </ul>
-  );
-}
-
-function UsersGallery() {
-  return (
-    <div className="relative mx-auto mt-10 w-[240px] md:mx-0">
-      <span className="absolute right-0 top-0" aria-hidden>
-        <SparkleIcon className="fill-yellow-500" />
-      </span>
-
-      <h2 className="pl-3 font-display text-4xl text-white [text-wrap:balance]">
-        User&apos;s gallery
-      </h2>
-    </div>
   );
 }
