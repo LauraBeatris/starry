@@ -1,20 +1,31 @@
 import { WorkOS } from '@workos-inc/node';
 import { SignJWT } from 'jose';
 import { NextRequest, NextResponse } from 'next/server';
+import z from 'zod';
 
 import { getJwtSecretKey } from '@/app/lib/auth';
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 const clientId = process.env.WORKOS_CLIENT_ID;
 
-export async function GET(req: NextRequest) {
-  // TODO - Apply parsing for search params to avoid assertion
-  const code = req.nextUrl.searchParams.get('code') as string;
-  const url = req.nextUrl.clone();
+const CallbackRequestQuery = z.object({
+  code: z.string(),
+});
+
+export async function GET(request: NextRequest) {
+  const query = Object.fromEntries(new URL(request.url).searchParams.entries());
+  const parsedRequestQuery = CallbackRequestQuery.safeParse(query);
+  const url = request.nextUrl.clone();
+
+  if (!parsedRequestQuery.success) {
+    url.searchParams.set('error_message', 'Invalid query params');
+
+    return NextResponse.redirect(url);
+  }
 
   try {
     const { user } = await workos.userManagement.authenticateWithCode({
-      code,
+      code: parsedRequestQuery.data.code,
       clientId,
     });
 
@@ -41,8 +52,6 @@ export async function GET(req: NextRequest) {
     return response;
   } catch (error) {
     if (error instanceof Error) {
-      const url = req.nextUrl.clone();
-
       url.searchParams.set('error_message', error.message);
 
       return NextResponse.redirect(url);
