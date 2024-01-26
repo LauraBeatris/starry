@@ -27,7 +27,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <html lang="en">
         <body
           className={className(
-            'starry-background min-h-screen',
+            'starry-background min-h-screen overflow-x-hidden',
             playfairFont.variable,
             interFont.variable,
           )}
