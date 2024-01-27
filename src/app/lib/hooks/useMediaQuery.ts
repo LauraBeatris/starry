@@ -7,16 +7,16 @@ interface Dimensions {
   height: number;
 }
 
-const breakpoints: Record<Exclude<Device, 'desktop'>, MediaQueryList> = {
-  mobile: window.matchMedia('(max-width: 640px)'),
-  tablet: window.matchMedia('(min-width: 641px) and (max-width: 1024px)'),
-};
-
 export function useMediaQuery() {
   const [device, setDevice] = useState<Device>();
   const [dimensions, setDimensions] = useState<Dimensions>();
 
   useEffect(() => {
+    const breakpoints: Record<Exclude<Device, 'desktop'>, MediaQueryList> = {
+      mobile: window.matchMedia('(max-width: 640px)'),
+      tablet: window.matchMedia('(min-width: 641px) and (max-width: 1024px)'),
+    };
+
     function checkDevice() {
       if (breakpoints.mobile.matches) {
         return setDevice('mobile');

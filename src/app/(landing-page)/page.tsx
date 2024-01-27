@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
+import { AuthButton } from './_components/AuthButton';
 import { getAuthorizationUrl } from '@/app/lib/auth';
-import { AuthButton } from '@/app/ui/Button/AuthButton';
 import { SparkleIcon } from '@/app/ui/Icons/SparkleIcon';
 
 export default function HomePage() {
