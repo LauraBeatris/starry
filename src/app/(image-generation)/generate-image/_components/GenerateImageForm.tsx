@@ -1,11 +1,13 @@
 'use client';
 
 import { PaintingPatternPicker, Popover } from './PaintingPatternPicker';
+import { PaintingUploader } from './PaintingUploader';
 
 export function GenerateImageForm() {
   return (
-    <form className="z-30 mt-6 space-x-2 rounded-lg border border-gray-200 bg-yellow-50 px-1 py-2 shadow-md sm:px-2 sm:py-4">
-      <PaintingPatternPicker />
+    <form className="z-30 flex flex-col items-center justify-center space-x-2 shadow-md">
+      {/* <PaintingPatternPicker /> */}
+      <PaintingUploader />
     </form>
   );
 }

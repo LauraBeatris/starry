@@ -37,8 +37,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
             {children}
           </div>
-
-          <Footer />
         </body>
       </html>
     </>
@@ -56,60 +54,9 @@ function Header() {
         </h1>
       </div>
 
-      <p className="z-30 px-4 pt-6 text-center font-light text-white [text-wrap:balance] md:text-2xl">
+      <p className="z-30 px-4 pt-6 text-center text-xl font-light text-white [text-wrap:balance] md:text-2xl">
         Generate pictures based on Van Gogh arts via AI model.
       </p>
     </header>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="relative flex flex-col items-center justify-center border-t border-white border-opacity-10 p-4 text-white md:flex-row md:gap-1 md:p-10">
-      <p className="flex gap-1">
-        <span>Made by</span>
-
-        <span>
-          <Sparkles sizeRange={[1, 10]}>
-            <Link
-              className="font-bold underline-offset-4 hover:underline"
-              href="https://twitter.com/lauradotjs"
-            >
-              Laura Beatris
-            </Link>
-          </Sparkles>
-        </span>
-      </p>
-
-      <p>
-        <span className="invisible md:visible">-</span> Powered by{' '}
-        <Link
-          className="font-bold underline-offset-4 hover:underline"
-          rel="noreferrer noopener"
-          target="_blank"
-          href="https://vercel.com"
-        >
-          Vercel
-        </Link>
-        ,{' '}
-        <Link
-          className="font-bold underline-offset-4 hover:underline"
-          rel="noreferrer noopener"
-          target="_blank"
-          href="https://workos.com"
-        >
-          WorkOS
-        </Link>{' '}
-        and{' '}
-        <Link
-          className="font-bold underline-offset-4 hover:underline"
-          rel="noreferrer noopener"
-          target="_blank"
-          href="https://replicate.com/"
-        >
-          Replicate
-        </Link>
-      </p>
-    </footer>
   );
 }
