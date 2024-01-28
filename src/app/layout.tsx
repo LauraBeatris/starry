@@ -12,7 +12,10 @@ import { Sparkles } from '@/app/ui/Sparkles';
 import '@/app/lib/serverEnvSchema';
 
 export const metadata: Metadata = {
-  title: 'Starry',
+  title: {
+    template: 'Starry | %s',
+    default: 'Starry',
+  },
   description:
     'Generate pictures based on Van Gogh arts via AI model. Powered by Vercel and Replicate.',
   // TODO - Update URL with correct domain
