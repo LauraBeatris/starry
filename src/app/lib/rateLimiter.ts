@@ -1,5 +1,5 @@
 import { Ratelimit } from '@upstash/ratelimit';
-import { kv } from '@vercel/kv'
+import { kv } from '@vercel/kv';
 import { User } from '@workos-inc/node';
 
 export const rateLimiter = new Ratelimit({
