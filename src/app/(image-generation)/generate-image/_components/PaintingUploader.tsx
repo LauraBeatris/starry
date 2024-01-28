@@ -1,37 +1,56 @@
-"use client"
+'use client';
 
-import { UploadDropzone, UploadDropzoneConfig } from '@bytescale/upload-widget-react';
-import { PropsWithChildren } from 'react';
+import {
+  UploadButton,
+  UploadDropzoneConfig,
+} from '@bytescale/upload-widget-react';
+import { ReactNode } from 'react';
 
-import { interFont } from '@/app/lib/fonts';
+import { playfairFont } from '@/app/lib/fonts';
+import { Button } from '@/app/ui/Button';
+import { UploadIcon } from '@/app/ui/Icons/UploadIcon';
 
-const options = {
-  apiKey: "free", 
-  maxFileCount: 1,
-  showFinishButton: true,
-  styles: {
-    "fontFamilies": {
-      "base": interFont.style.fontFamily,
+interface PaintingUploaderProps {
+  apiKey: string;
+  children: ReactNode;
+}
+
+export function PaintingUploader({ apiKey, children }: PaintingUploaderProps) {
+  const options = {
+    apiKey,
+    maxFileCount: 1,
+    showFinishButton: true,
+    styles: {
+      fontFamilies: {
+        base: playfairFont.style.fontFamily,
+      },
+      colors: {
+        primary: '#F0003C',
+        shade400: '#000',
+      },
     },
-    colors: {
-      "primary": "#F0003C",
-      "shade400": "#FFF",
-    }
-  }
-} satisfies UploadDropzoneConfig;
+  } satisfies UploadDropzoneConfig;
 
-export function PaintingUploader({ children }: PropsWithChildren) {
   return (
-    <div className="w-full h-full flex justify-center items-center relative">
+    <div className="relative flex h-full w-full items-center justify-center">
       {children}
 
       <div className="absolute z-50">
-        <UploadDropzone options={options}
-          onUpdate={({ uploadedFiles }) => console.log(uploadedFiles.map(x => x.fileUrl).join("\n"))}
-          onComplete={files => alert(files.map(x => x.fileUrl).join("\n"))}
-          width="600px"
-          height="375px" 
-        />
+        <UploadButton
+          options={options}
+          onComplete={(files) => alert(files.map((x) => x.fileUrl).join('\n'))}
+        >
+          {({ onClick }) => (
+            <Button onClick={onClick}>
+              <div className="flex items-center gap-1">
+                <UploadIcon />
+                <p className="font-display text-xl font-bold">
+                  Upload an image
+                </p>
+              </div>
+            </Button>
+          )}
+        </UploadButton>
       </div>
     </div>
   );
