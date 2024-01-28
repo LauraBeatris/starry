@@ -2,14 +2,9 @@ import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
 import { getAuthorizationUrl } from '@/app/lib/auth';
-import { SparkleIcon } from '@/app/ui/Icons/SparkleIcon';
 
 export default function HomePage() {
-  return (
-    <>
-      <AuthorizationLink />
-    </>
-  );
+  return <AuthorizationLink />;
 }
 
 async function AuthorizationLink() {
