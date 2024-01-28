@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
 import { UploadDropzone, UploadDropzoneConfig } from '@bytescale/upload-widget-react';
-import Image from 'next/image';
+import { PropsWithChildren } from 'react';
 
 import { interFont } from '@/app/lib/fonts';
 
@@ -20,15 +20,10 @@ const options = {
   }
 } satisfies UploadDropzoneConfig;
 
-export function PaintingUploader() {
+export function PaintingUploader({ children }: PropsWithChildren) {
   return (
-    <div className="flex justify-center items-center relative mt-6 h-[600px] w-[450px]">
-      <Image
-        className="z-20"
-        src="/painting-frame.png"
-        alt="Portrait Frame"
-        fill
-      />
+    <div className="w-full h-full flex justify-center items-center relative">
+      {children}
 
       <div className="absolute z-50">
         <UploadDropzone options={options}
@@ -38,13 +33,6 @@ export function PaintingUploader() {
           height="375px" 
         />
       </div>
-
-      <Image
-        className="z-10 blur-lg"
-        src="/starry-night.webp"
-        alt="Generated Picture Example"
-        fill
-      />
     </div>
   );
 }
