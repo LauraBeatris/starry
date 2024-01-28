@@ -6,10 +6,8 @@ const envServerSchema = z.object({
   WORKOS_CLIENT_ID: envVariableSchema,
   WORKOS_REDIRECT_URI: envVariableSchema,
   JWT_SECRET_KEY: envVariableSchema,
-  BYTESCALE_API_KEY: envVariableSchema,
-  UPSTASH_REDIS_REST_URL: envVariableSchema,
-  UPSTASH_REDIS_REST_TOKEN: envVariableSchema,
   REPLICATE_API_TOKEN: envVariableSchema,
+  REPLICATE_WEBHOOK_SECRET: envVariableSchema,
 });
 
 type EnvServerSchema = z.infer<typeof envServerSchema>;
@@ -19,10 +17,8 @@ const envServerParsed = envServerSchema.safeParse({
   WORKOS_CLIENT_ID: process.env.WORKOS_CLIENT_ID,
   WORKOS_REDIRECT_URI: process.env.WORKOS_REDIRECT_URI,
   JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
-  BYTESCALE_API_KEY: process.env.BYTESCALE_API_KEY,
-  UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
-  UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
   REPLICATE_API_TOKEN: process.env.REPLICATE_API_TOKEN,
+  REPLICATE_WEBHOOK_SECRET: process.env.REPLICATE_WEBHOOK_SECRET,
 } satisfies EnvServerSchema);
 
 if (!envServerParsed.success) {

@@ -1,16 +1,11 @@
 import { Ratelimit } from '@upstash/ratelimit';
-import { Redis } from '@upstash/redis';
+import { kv } from '@vercel/kv'
 import { User } from '@workos-inc/node';
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN,
-});
-
 export const rateLimiter = new Ratelimit({
-  redis,
+  redis: kv,
+  // Allows 5 requests per day
   limiter: Ratelimit.fixedWindow(5, '1440 m'),
-  analytics: true,
 });
 
 export async function performRateLimitByUser(user: User) {
