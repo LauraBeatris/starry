@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://starry.vercel.app">
-    <img alt="Starry – Generate pictures based on Van Gogh arts via AI model." src="./.github/images/preview.gif">
+    <img alt="Starry – Generate pictures based on Van Gogh's Starry Night." src="./.github/images/preview.gif">
     <h1 align="center">Starry</h1>
   </a>
 </p>

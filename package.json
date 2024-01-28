@@ -10,6 +10,7 @@
     "format": "prettier --ignore-path .gitignore --write ."
   },
   "dependencies": {
+    "@bytescale/upload-widget-react": "^4.17.0",
     "@vercel/speed-insights": "^1.0.7",
     "@workos-inc/node": "^4.0.0",
     "clsx": "^2.0.0",
