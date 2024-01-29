@@ -1,11 +1,25 @@
+import { put } from '@vercel/blob';
+import { revalidatePath } from 'next/cache';
 import Image from 'next/image';
 
-import { PaintingUploader } from './PaintingUploader';
 import paintingFrame from '../../../../../public/painting-frame.png';
+import { uploadImage } from '../../actions';
 
 export function GenerateImageForm() {
   return (
-    <PaintingUploader apiKey={process.env.BYTESCALE_API_KEY}>
+    <form
+      action={uploadImage}
+      className="relative z-50 mt-5 flex flex-col items-center justify-center"
+    >
+      <div className="absolute mx-auto flex flex-col self-center">
+        <div>
+          <label htmlFor="image">Image</label>
+          <input type="file" id="image" name="image" required />
+        </div>
+
+        <button>Upload</button>
+      </div>
+
       <Image
         src={paintingFrame}
         alt="Painting frame"
@@ -17,6 +31,6 @@ export function GenerateImageForm() {
           height: 'auto',
         }}
       />
-    </PaintingUploader>
+    </form>
   );
 }
