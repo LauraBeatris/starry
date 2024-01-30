@@ -19,6 +19,7 @@ export async function verifyJwtToken(token: string) {
     const { payload } = await jwtVerify(token, getJwtSecretKey());
     return payload;
   } catch (error) {
+    // TODO - Handle when a JWT gets expired - install fp-ts to handle those flows with `Either`
     return null;
   }
 }

@@ -2,9 +2,7 @@
 
 import { put } from '@vercel/blob';
 import { kv } from '@vercel/kv';
-import { revalidatePath } from 'next/cache';
 import Replicate from 'replicate';
-import * as z from 'zod';
 
 import { getUser } from '@/app/lib/auth';
 import { nanoid } from '@/app/lib/nanoid';
@@ -15,23 +13,26 @@ const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
 
-export async function generateImage(form: FormData) {
-  // TODO - Validate form data;
-  // TODO - Call Replicate API
-
+export async function uploadAndGenerateImage(formData: FormData) {
   const { user } = await getUser();
   if (!user) {
     throw new Error('User not found');
   }
 
-  performRateLimitByUser(user);
+  const imageFile = formData.get('image') as File;
+
+  // TODO - Handle error with `useFormState`
+  const { url: image } = await put(imageFile.name, imageFile, {
+    access: 'public',
+  });
+
+  // TODO - Handle error with `useFormState`
+  await performRateLimitByUser(user);
 
   const id = nanoid();
-  const image = 'example';
 
   await Promise.all([
     kv.hset(id, {
-      // TODO - Pass real blob URL
       image,
     }),
     replicate.predictions.create({
@@ -46,28 +47,4 @@ export async function generateImage(form: FormData) {
       webhook_events_filter: ['completed'],
     }),
   ]);
-
-  console.log('Generating image');
-}
-
-const UploadImageFormSchema = z.object({
-  image: z.object({
-    name: z.string(),
-    type: z.string(),
-    size: z.number(),
-    lastModified: z.number(),
-  }),
-});
-
-export async function uploadImage(formData: FormData) {
-  const imageFile = formData.get('image') as File;
-
-  // TODO - Handle upload error with `useFormState`
-  const blob = await put(imageFile.name, imageFile, {
-    access: 'public',
-  });
-
-  revalidatePath('/generate-image');
-
-  return blob;
 }
