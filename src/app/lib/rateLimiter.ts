@@ -1,6 +1,7 @@
 import { Ratelimit } from '@upstash/ratelimit';
 import { kv } from '@vercel/kv';
 import { User } from '@workos-inc/node';
+import * as E from 'fp-ts/lib/Either';
 
 export const rateLimiter = new Ratelimit({
   redis: kv,
@@ -19,8 +20,10 @@ export async function performRateLimitByUser(user: User) {
   const minutes = Math.floor(diff / 1000 / 60) - hours * 60;
 
   if (!result.success) {
-    throw new Error(
+    return E.left(
       `Rate limit exceeded. Your generations will renew in ${hours} hours and ${minutes} minutes.`,
     );
   }
+
+  return E.right(result)
 }

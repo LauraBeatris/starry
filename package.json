@@ -16,6 +16,7 @@
     "@vercel/speed-insights": "^1.0.7",
     "@workos-inc/node": "^4.0.0",
     "clsx": "^2.0.0",
+    "fp-ts": "^2.16.2",
     "jose": "^5.2.0",
     "nanoid": "^5.0.4",
     "next": "latest",

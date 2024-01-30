@@ -2,6 +2,8 @@
 
 import { put } from '@vercel/blob';
 import { kv } from '@vercel/kv';
+import * as E from 'fp-ts/lib/Either';
+import { redirect } from 'next/navigation'
 import Replicate from 'replicate';
 
 import { getUser } from '@/app/lib/auth';
@@ -13,27 +15,47 @@ const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
 
+async function uploadImage(imageFile: File){
+  try {
+    const { url } = await put(imageFile.name, imageFile, {
+      access: 'public',
+    });
+
+    return E.right({ url })
+  } catch (error){
+    return E.left("Error while uploading image");
+  }
+}
+
 export async function uploadAndGenerateImage(formData: FormData) {
-  const { user } = await getUser();
-  if (!user) {
-    throw new Error('User not found');
+  const getUserResult = await getUser();
+
+  if (E.isLeft(getUserResult)){
+    return redirect("/");
   }
 
-  const imageFile = formData.get('image') as File;
+  const { user } = getUserResult.right;
+  const rateLimitResult = await performRateLimitByUser(user);
 
-  // TODO - Handle error with `useFormState`
-  const { url: image } = await put(imageFile.name, imageFile, {
-    access: 'public',
-  });
+  if (E.isLeft(rateLimitResult)){
+    // TODO - Apply error handling
+    throw new Error(rateLimitResult.left)
+  }
 
-  // TODO - Handle error with `useFormState`
-  await performRateLimitByUser(user);
+  const image = formData.get('image') as File;
+  const uploadImageResult = await uploadImage(image)
 
+  if (E.isLeft(uploadImageResult)){
+    // TODO - Apply error handling
+    throw new Error(uploadImageResult.left)
+  }
+
+  const { url: uploadImageUrl } = uploadImageResult.right;
   const id = nanoid();
 
   await Promise.all([
     kv.hset(id, {
-      image,
+      uploadImageUrl,
     }),
     replicate.predictions.create({
       version:
