@@ -1,15 +1,22 @@
 "use client";
 
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
 
 import { SubmitButton } from './SubmitButton';
 import paintingFrame from '../../../../../public/painting-frame.png';
 import { uploadAndGenerateImage } from '../../actions';
 
 export function GenerateImageForm() {
+  const router = useRouter();
+
   return (
     <form
-      action={uploadAndGenerateImage}
+      action={(data) => {
+        uploadAndGenerateImage(data).then((id) => {
+          router.push(`/generate-image/result/${id}`);
+        });
+      }}
       className="relative z-50 mt-5 flex flex-col items-center justify-center"
     >
       <div className="absolute mx-auto flex flex-col items-center justify-center gap-5 self-center">

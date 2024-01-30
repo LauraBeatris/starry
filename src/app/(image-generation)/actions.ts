@@ -38,24 +38,24 @@ export async function uploadAndGenerateImage(formData: FormData) {
   const rateLimitResult = await performRateLimitByUser(user);
 
   if (E.isLeft(rateLimitResult)){
-    // TODO - Apply error handling
+    // TODO - Apply error handling with `useFormState`
     throw new Error(rateLimitResult.left)
   }
 
   const image = formData.get('image') as File;
-  const uploadImageResult = await uploadImage(image)
+  const uploadedImageResult = await uploadImage(image)
 
-  if (E.isLeft(uploadImageResult)){
-    // TODO - Apply error handling
-    throw new Error(uploadImageResult.left)
+  if (E.isLeft(uploadedImageResult)){
+    // TODO - Apply error handling with `useFormState`
+    throw new Error(uploadedImageResult.left)
   }
 
-  const { url: uploadImageUrl } = uploadImageResult.right;
+  const { url: uploadedImageUrl } = uploadedImageResult.right;
   const id = nanoid();
 
   await Promise.all([
     kv.hset(id, {
-      uploadImageUrl,
+      uploadedImageUrl: uploadedImageUrl,
     }),
     replicate.predictions.create({
       version:
@@ -63,10 +63,12 @@ export async function uploadAndGenerateImage(formData: FormData) {
       input: {
         prompt:
           "Convert this picture to the same style and colors as the Van Gogh's Starry night art",
-        image,
+        image: uploadedImageUrl,
       },
       webhook: `${REPLICATE_WEBHOOK_URL}?id=${id}&secret=${process.env.REPLICATE_WEBHOOK_SECRET}`,
       webhook_events_filter: ['completed'],
     }),
   ]);
+
+  return id;
 }
