@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 import { SubmitButton } from './SubmitButton';
 import paintingFrame from '../../../../../public/painting-frame.png';

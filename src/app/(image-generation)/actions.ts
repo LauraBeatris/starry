@@ -3,7 +3,7 @@
 import { put } from '@vercel/blob';
 import { kv } from '@vercel/kv';
 import * as E from 'fp-ts/lib/Either';
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 import Replicate from 'replicate';
 
 import { getUser } from '@/app/lib/auth';
@@ -15,43 +15,45 @@ const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
 
-async function uploadImage(imageFile: File){
+async function uploadImage(imageFile: File) {
   try {
     const { url } = await put(imageFile.name, imageFile, {
       access: 'public',
     });
 
-    return E.right({ url })
-  } catch (error){
-    return E.left("Error while uploading image");
+    return E.right({ url });
+  } catch (error) {
+    return E.left('Error while uploading image');
   }
 }
 
 export async function uploadAndGenerateImage(formData: FormData) {
   const getUserResult = await getUser();
 
-  if (E.isLeft(getUserResult)){
-    return redirect("/");
+  if (E.isLeft(getUserResult)) {
+    return redirect('/');
   }
 
   const { user } = getUserResult.right;
   const rateLimitResult = await performRateLimitByUser(user);
 
-  if (E.isLeft(rateLimitResult)){
+  if (E.isLeft(rateLimitResult)) {
     // TODO - Apply error handling with `useFormState`
-    throw new Error(rateLimitResult.left)
+    throw new Error(rateLimitResult.left);
   }
 
   const image = formData.get('image') as File;
-  const uploadedImageResult = await uploadImage(image)
+  const uploadedImageResult = await uploadImage(image);
 
-  if (E.isLeft(uploadedImageResult)){
+  if (E.isLeft(uploadedImageResult)) {
     // TODO - Apply error handling with `useFormState`
-    throw new Error(uploadedImageResult.left)
+    throw new Error(uploadedImageResult.left);
   }
 
   const { url: uploadedImageUrl } = uploadedImageResult.right;
   const id = nanoid();
+
+  console.log({ uploadedImageUrl });
 
   await Promise.all([
     kv.hset(id, {

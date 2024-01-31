@@ -1,3 +1,3 @@
-export default function GenerateImageResultPage(){
-  return <></>
+export default function GenerateImageResultPage() {
+  return <></>;
 }

@@ -25,5 +25,5 @@ export async function performRateLimitByUser(user: User) {
     );
   }
 
-  return E.right(result)
+  return E.right(result);
 }

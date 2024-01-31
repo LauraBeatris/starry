@@ -20,15 +20,15 @@ export async function verifyJwtToken(token: string) {
     const { payload } = await jwtVerify(token, getJwtSecretKey());
     return E.right(payload);
   } catch (error) {
-    return E.left("Error while verifying JWT token");
+    return E.left('Error while verifying JWT token');
   }
 }
 
 export async function getUser() {
   const token = cookies().get('token')?.value;
 
-  if (!token){
-    return E.left("Not authenticated");
+  if (!token) {
+    return E.left('Not authenticated');
   }
 
   const verifiedTokenResult = await verifyJwtToken(token);
