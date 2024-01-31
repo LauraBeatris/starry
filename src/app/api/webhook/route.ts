@@ -50,7 +50,7 @@ export async function POST(req: Request) {
 
   const { url } = await put(`${id}.png`, file, { access: 'public' });
 
-  await kv.hset(id, { image: url });
+  await kv.hset(id, { generatedImageUrl: url });
 
   return NextResponse.json({ ok: true });
 }
