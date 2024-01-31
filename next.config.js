@@ -3,7 +3,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'avatars.githubusercontent.com',
+        protocol: 'https',
+        hostname: 'jxgoqlyxc3jqoq07.public.blob.vercel-storage.com',
+        port: '',
       },
     ],
   },
