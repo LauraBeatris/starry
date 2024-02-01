@@ -2,6 +2,7 @@ import { Ratelimit } from '@upstash/ratelimit';
 import { kv } from '@vercel/kv';
 import { User } from '@workos-inc/node';
 import * as E from 'fp-ts/lib/Either';
+import { unstable_noStore } from 'next/cache';
 
 export const rateLimiter = new Ratelimit({
   redis: kv,
@@ -10,6 +11,8 @@ export const rateLimiter = new Ratelimit({
 });
 
 export async function performRateLimitByUser(user: User) {
+  unstable_noStore();
+
   const identifier = user.email;
   const result = await rateLimiter.limit(identifier!);
 
