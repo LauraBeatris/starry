@@ -2,10 +2,13 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useFormStatus } from 'react-dom';
 
-import { SubmitButton } from './SubmitButton';
 import paintingFrame from '../../../../../public/painting-frame.png';
 import { uploadAndGenerateImage } from '../../actions';
+import { Button } from '@/app/ui/Button';
+import { LoadingCircleIcon } from '@/app/ui/Icons/LoadingIcon';
+import { SparkleIcon } from '@/app/ui/Icons/SparkleIcon';
 
 export function GenerateImageForm() {
   const router = useRouter();
@@ -50,5 +53,25 @@ export function GenerateImageForm() {
         }}
       />
     </form>
+  );
+}
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button disabled={pending}>
+      <div className="flex h-[20px] w-[110px] items-center justify-center gap-1">
+        {pending ? (
+          <LoadingCircleIcon />
+        ) : (
+          <>
+            <SparkleIcon />
+            <span>Generate</span>
+            <SparkleIcon />
+          </>
+        )}
+      </div>
+    </Button>
   );
 }

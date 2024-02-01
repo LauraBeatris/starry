@@ -3,6 +3,8 @@ import { unstable_noStore } from 'next/cache';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+import { ImageResult } from '../../_components/ImageResult';
+
 export default async function GenerateImageResultPage({
   params,
 }: {
@@ -21,13 +23,5 @@ export default async function GenerateImageResultPage({
     notFound();
   }
 
-  return (
-    <Image
-      className="mt-4"
-      width={500}
-      height={500}
-      alt="Generated image"
-      src={data.uploadedImageUrl}
-    />
-  );
+  return <ImageResult image={data.uploadedImageUrl} />;
 }
