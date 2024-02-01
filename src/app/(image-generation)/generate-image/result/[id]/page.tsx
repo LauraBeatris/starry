@@ -23,5 +23,10 @@ export default async function GenerateImageResultPage({
     notFound();
   }
 
-  return <ImageResult image={data.uploadedImageUrl} />;
+  return (
+    <ImageResult
+      generatedImageUrl={data.generatedImageUrl}
+      uploadedImageUrl={data.uploadedImageUrl}
+    />
+  );
 }

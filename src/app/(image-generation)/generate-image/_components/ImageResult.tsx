@@ -1,20 +1,26 @@
 'use client';
 
-import Image from 'next/image';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from 'react-compare-slider';
 
 import { LoadingCircleIcon } from '@/app/ui/Icons/LoadingIcon';
 
 interface ImageResultProps {
-  image?: string;
+  generatedImageUrl?: string;
+  uploadedImageUrl?: string;
 }
 
 const intervalMilliseconds = 1000;
 
-export function ImageResult({ image }: ImageResultProps) {
+export function ImageResult({
+  generatedImageUrl,
+  uploadedImageUrl,
+}: ImageResultProps) {
   const router = useRouter();
-  const params = useParams();
 
   /**
    * Internal to keep refreshing/pooling the page until the image is
@@ -23,29 +29,48 @@ export function ImageResult({ image }: ImageResultProps) {
   useEffect(() => {
     let interval: NodeJS.Timeout;
 
-    if (!image) {
+    if (!generatedImageUrl) {
       interval = setInterval(() => {
         router.refresh();
       }, intervalMilliseconds);
     }
 
     return () => clearInterval(interval);
-  }, [image, router]);
+  }, [generatedImageUrl, uploadedImageUrl, router]);
+
+  const hasLoadedImages = generatedImageUrl && uploadedImageUrl;
+
+  if (!hasLoadedImages) {
+    return (
+      <div className="z-50 mx-auto pt-5">
+        <LoadingCircleIcon />
+      </div>
+    );
+  }
 
   return (
-    <div className="z-50 mx-auto pt-5">
-      {image ? (
-        <Image
-          alt="output image"
-          src={image}
-          width={1280}
-          height={1280}
-          className="h-full object-cover"
-          unoptimized
-        />
-      ) : (
-        <LoadingCircleIcon />
-      )}
+    <div className="z-50 mx-auto">
+      <CompareSlider
+        generated={generatedImageUrl}
+        original={uploadedImageUrl}
+      />
     </div>
+  );
+}
+
+interface CompareSliderProps {
+  original: string;
+  generated: string;
+}
+
+function CompareSlider({ original, generated }: CompareSliderProps) {
+  return (
+    <ReactCompareSlider
+      itemOne={<ReactCompareSliderImage src={original} alt="original photo" />}
+      itemTwo={<ReactCompareSliderImage src={generated} alt="restored photo" />}
+      portrait
+      position={0}
+      className="mt-5 flex w-[475px]"
+    />
   );
 }
