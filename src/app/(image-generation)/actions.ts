@@ -63,6 +63,7 @@ export async function uploadAndGenerateImage(formData: FormData) {
       version:
         '30c1d0b916a6f8efce20493f5d61ee27491ab2a60437c13c588468b9810ec23f',
       input: {
+        // TODO - Improve the prompt
         prompt:
           "Convert this picture to the same style and colors as the Van Gogh's Starry night art",
         image: uploadedImageUrl,
