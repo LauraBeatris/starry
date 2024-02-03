@@ -2,14 +2,13 @@ import './globals.css';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
 import { className } from '@/app/lib/className';
 import { interFont, playfairFont } from '@/app/lib/fonts';
 import { Sparkles } from '@/app/ui/Sparkles';
 
-import '@/app/lib/serverEnvSchema';
+import '@/app/lib/envSchema';
 
 export const metadata: Metadata = {
   title: {
