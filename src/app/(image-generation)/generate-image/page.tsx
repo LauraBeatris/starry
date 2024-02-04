@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { GenerateImageForm } from './_components/GenerateImageForm';
 
 export const metadata: Metadata = {
-  title: 'Generate Image',
+  title: 'Generate image with a prompt',
 };
 
 export default async function GenerateImagePage() {

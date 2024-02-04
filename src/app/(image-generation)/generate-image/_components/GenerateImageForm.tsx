@@ -10,12 +10,8 @@ export function GenerateImageForm({
   initialPromptText,
 }: GenerateImageFormProps) {
   return (
-    <section className="md:p-reset z-50 w-full px-2">
+    <section className="md:p-reset z-10 w-full px-2">
       <PromptForm initialPromptText={initialPromptText} />
-
-      {/* <Suspense fallback={<RemainingDisplay />}>
-        <RemainingCount />
-  </Suspense>*/}
     </section>
   );
 }
