@@ -19,7 +19,6 @@
     "clsx": "^2.0.0",
     "fp-ts": "^2.16.2",
     "jose": "^5.2.0",
-    "nanoid": "^5.0.4",
     "next": "latest",
     "react": "18.2.0",
     "react-compare-slider": "^3.0.1",
