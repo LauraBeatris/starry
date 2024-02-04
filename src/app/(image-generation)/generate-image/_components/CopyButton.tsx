@@ -42,6 +42,7 @@ export function CopyButton({ generatedImageUrl, imageId }: CopyButtonProps) {
 
   return (
     <button
+      disabled={!generatedImageUrl}
       onClick={copyImage}
       className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition-all hover:scale-105 active:scale-95"
     >
