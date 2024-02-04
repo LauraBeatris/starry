@@ -60,8 +60,6 @@ export async function generateImage(_prevState: FormState, formData: FormData) {
 
   const { prompt } = parsedFormData.data;
 
-  console.log({ prompt })
-
   await Promise.all([
     kv.hset(id, {
       prompt,

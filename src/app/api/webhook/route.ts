@@ -22,7 +22,7 @@ const WebhookPayloadSchema = z
   .partial();
 
 export async function POST(req: Request) {
-  console.log('hey')
+  console.log('hey');
 
   const parsedSearchParams = WebhookParamsSchema.safeParse(
     Object.fromEntries(new URL(req.url).searchParams),

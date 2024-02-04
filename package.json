@@ -23,7 +23,6 @@
     "next": "latest",
     "promptmaker": "^1.1.0",
     "react": "18.2.0",
-    "react-compare-slider": "^3.0.1",
     "react-dom": "18.2.0",
     "replicate": "^0.25.2",
     "tailwind-merge": "^1.14.0",

@@ -1,25 +1,18 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import {
-  ReactCompareSlider,
-  ReactCompareSliderImage,
-} from 'react-compare-slider';
 
 import { LoadingCircleIcon } from '@/app/ui/Icons/LoadingIcon';
 
 interface ImageResultProps {
   generatedImageUrl?: string;
-  uploadedImageUrl?: string;
 }
 
 const intervalMilliseconds = 1000;
 
-export function ImageResult({
-  generatedImageUrl,
-  uploadedImageUrl,
-}: ImageResultProps) {
+export function ImageResult({ generatedImageUrl }: ImageResultProps) {
   const router = useRouter();
 
   /**
@@ -36,11 +29,9 @@ export function ImageResult({
     }
 
     return () => clearInterval(interval);
-  }, [generatedImageUrl, uploadedImageUrl, router]);
+  }, [generatedImageUrl, router]);
 
-  const hasLoadedImages = generatedImageUrl && uploadedImageUrl;
-
-  if (!hasLoadedImages) {
+  if (!generatedImageUrl) {
     return (
       <div className="z-50 mx-auto pt-5">
         <LoadingCircleIcon />
@@ -49,28 +40,14 @@ export function ImageResult({
   }
 
   return (
-    <div className="z-50 mx-auto">
-      <CompareSlider
-        generated={generatedImageUrl}
-        original={uploadedImageUrl}
+    <div className="z-50 mx-4 mx-auto mt-5 rounded-lg bg-white p-4 lg:mx-0">
+      <Image
+        className="rounded-lg"
+        alt="Generated image"
+        src={generatedImageUrl}
+        width={500}
+        height={500}
       />
     </div>
-  );
-}
-
-interface CompareSliderProps {
-  original: string;
-  generated: string;
-}
-
-function CompareSlider({ original, generated }: CompareSliderProps) {
-  return (
-    <ReactCompareSlider
-      itemOne={<ReactCompareSliderImage src={original} alt="original photo" />}
-      itemTwo={<ReactCompareSliderImage src={generated} alt="restored photo" />}
-      portrait
-      position={0}
-      className="mt-5 flex w-[475px]"
-    />
   );
 }
