@@ -1,10 +1,17 @@
 import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
+import { ImageResult } from '../(image-generation)/generate-image/_components/ImageResult';
 import { getAuthorizationUrl } from '@/app/lib/auth';
 
 export default function HomePage() {
-  return <AuthorizationLink />;
+  return (
+    <>
+      <AuthorizationLink />
+
+      <ImageResult generatedImageUrl="https://jxgoqlyxc3jqoq07.public.blob.vercel-storage.com/kzjqciV-JoczpcOdey08DY2lCfBYMviECds1Mm.png" />
+    </>
+  );
 }
 
 async function AuthorizationLink() {

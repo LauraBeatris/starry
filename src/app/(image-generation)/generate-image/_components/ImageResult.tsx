@@ -40,13 +40,14 @@ export function ImageResult({ generatedImageUrl }: ImageResultProps) {
   }
 
   return (
-    <div className="z-50 mx-4 mx-auto mt-5 rounded-lg bg-white p-4 lg:mx-0">
+    <div className="z-50 mx-4 mx-auto rounded-lg bg-white p-4 lg:mx-0">
       <Image
         className="rounded-lg"
         alt="Generated image"
         src={generatedImageUrl}
         width={500}
         height={500}
+        unoptimized
       />
     </div>
   );

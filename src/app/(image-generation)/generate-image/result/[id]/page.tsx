@@ -21,5 +21,9 @@ export default async function GenerateImageResultPage({
     notFound();
   }
 
-  return <ImageResult generatedImageUrl={data.generatedImageUrl} />;
+  return (
+    <div className="z-50 mx-4 mx-auto mt-5">
+      <ImageResult generatedImageUrl={data.generatedImageUrl} />
+    </div>
+  );
 }

@@ -15,8 +15,7 @@ export function GenerateImageForm({
 
       {/* <Suspense fallback={<RemainingDisplay />}>
         <RemainingCount />
-      </Suspense>
-      <ImageGenerationResult image={image} /> */}
+  </Suspense>*/}
     </section>
   );
 }
