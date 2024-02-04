@@ -1,3 +1,4 @@
+import { kv } from '@vercel/kv';
 import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
@@ -8,9 +9,18 @@ export default function HomePage() {
   return (
     <>
       <AuthorizationLink />
-
       <ImageResult generatedImageUrl="https://jxgoqlyxc3jqoq07.public.blob.vercel-storage.com/kzjqciV-JoczpcOdey08DY2lCfBYMviECds1Mm.png" />
+      <GeneratedCount />
     </>
+  );
+}
+
+export async function GeneratedCount() {
+  const count = await kv.dbsize();
+  return (
+    <p className="z-30 mt-4 text-center text-sm text-white">
+      Over {count} snapshots of creativity and memories, and still counting!
+    </p>
   );
 }
 
