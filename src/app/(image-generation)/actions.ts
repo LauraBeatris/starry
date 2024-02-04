@@ -1,10 +1,11 @@
 'use server';
 
-import { put } from '@vercel/blob';
 import { kv } from '@vercel/kv';
 import * as E from 'fp-ts/lib/Either';
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import Replicate from 'replicate';
+import * as z from 'zod';
 
 import { getUser } from '@/app/lib/auth';
 import { nanoid } from '@/app/lib/nanoid';
@@ -15,63 +16,73 @@ const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
 
-async function uploadImage(imageFile: File) {
-  try {
-    const { url } = await put(imageFile.name, imageFile, {
-      access: 'public',
-    });
+const GenerateImageFormSchema = z.object({
+  prompt: z.string({
+    invalid_type_error: 'Please enter a prompt.',
+  }),
+});
 
-    return E.right({ url });
-  } catch (error) {
-    return E.left('Error while uploading image');
+export type FormState = {
+  errors?: {
+    prompt?: string[];
+  };
+  message?: string | null;
+};
+
+export async function generateImage(_prevState: FormState, formData: FormData) {
+  const parsedFormData = GenerateImageFormSchema.safeParse(
+    Object.fromEntries(formData.entries()),
+  );
+
+  if (!parsedFormData.success) {
+    return {
+      errors: parsedFormData.error.flatten().fieldErrors,
+      message: 'Invalid form data. Make sure to send a prompt value.',
+    };
   }
-}
 
-export async function uploadAndGenerateImage(formData: FormData) {
   const getUserResult = await getUser();
 
   if (E.isLeft(getUserResult)) {
-    return redirect('/');
+    redirect('/');
   }
 
   const { user } = getUserResult.right;
   const rateLimitResult = await performRateLimitByUser(user);
 
   if (E.isLeft(rateLimitResult)) {
-    // TODO - Apply error handling with `useFormState`
-    throw new Error(rateLimitResult.left);
+    return {
+      message: rateLimitResult.left,
+    };
   }
 
-  const image = formData.get('image') as File;
-  const uploadedImageResult = await uploadImage(image);
-
-  if (E.isLeft(uploadedImageResult)) {
-    // TODO - Apply error handling with `useFormState`
-    throw new Error(uploadedImageResult.left);
-  }
-
-  const { url: uploadedImageUrl } = uploadedImageResult.right;
   const id = nanoid();
 
-  console.log({ uploadedImageUrl });
+  const { prompt } = parsedFormData.data;
+
+  console.log({ prompt })
 
   await Promise.all([
     kv.hset(id, {
-      uploadedImageUrl: uploadedImageUrl,
+      prompt,
     }),
     replicate.predictions.create({
       version:
-        '30c1d0b916a6f8efce20493f5d61ee27491ab2a60437c13c588468b9810ec23f',
+        'ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4',
       input: {
-        // TODO - Improve the prompt
-        prompt:
-          "Convert this picture to the same style and colors as the Van Gogh's Starry night art",
-        image: uploadedImageUrl,
+        prompt: `Use a background as a starry night, but with a ${prompt}`,
+        width: 768,
+        height: 768,
+        scheduler: 'K_EULER',
+        num_outputs: 1,
+        guidance_scale: 7.5,
+        num_inference_steps: 50,
       },
       webhook: `${REPLICATE_WEBHOOK_URL}?id=${id}&secret=${process.env.REPLICATE_WEBHOOK_SECRET}`,
       webhook_events_filter: ['completed'],
     }),
   ]);
 
-  return id;
+  revalidatePath('/generate-image');
+  redirect(`/generate-image/result/${id}`);
 }

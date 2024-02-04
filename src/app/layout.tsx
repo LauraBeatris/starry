@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: 'Starry',
   },
   description:
-    "Turn your pictures into Van Gogh's Starry Night. Powered by Vercel and Replicate.",
+    "Turn your ideas into Van Gogh's Starry Night. Powered by Vercel and Replicate.",
   // TODO - Update URL with correct domain
   // TODO - Implement OG social image
   metadataBase: new URL('https://starry.vercel.app'),
@@ -59,7 +59,7 @@ function Header() {
       </div>
 
       <p className="z-30 px-4 pt-6 text-center text-xl font-light text-white [text-wrap:balance] md:text-2xl">
-        Turn your pictures into Van Gogh&apos;s Starry Night
+        Turn your ideas into Van Gogh&apos;s Starry Night
       </p>
     </header>
   );

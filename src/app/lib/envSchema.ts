@@ -35,7 +35,7 @@ const envServerParsed = envServerSchema.safeParse({
 
 if (!envServerParsed.success) {
   // TODO - Improve logging + configure Sentry
-  // Report to Sentry 
+  // Report to Sentry
   console.error(envServerParsed.error.issues);
 
   throw new Error('There is an error with the server environment variables');

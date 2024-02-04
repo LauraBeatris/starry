@@ -7,5 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default async function GenerateImagePage() {
-  return <GenerateImageForm />;
+  return (
+    <GenerateImageForm imagePlaceholder="https://xd2kcvzsdpeyx1gu.public.blob.vercel-storage.com/KDSkFdf-1vP84nn4Lm3Tp9J6jfRtMnOKNPlBdm.png" />
+  );
 }
