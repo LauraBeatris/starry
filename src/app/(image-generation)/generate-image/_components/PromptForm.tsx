@@ -71,7 +71,7 @@ export function PromptForm({ initialPromptText }: PromptFormProps) {
           placeholder={placeholderPrompt}
           onChange={(e) => setPrompt(e.currentTarget.value)}
           onKeyDown={(e) => {
-            if (e.currentTarget.value === '') {
+            if (e.key === 'Tab' && e.currentTarget.value === '') {
               setPrompt(placeholderPrompt);
               e.preventDefault();
             }
