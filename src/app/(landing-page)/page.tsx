@@ -9,13 +9,15 @@ export default function HomePage() {
   return (
     <>
       <AuthorizationLink />
-      <ImageResult generatedImageUrl="https://jxgoqlyxc3jqoq07.public.blob.vercel-storage.com/kzjqciV-JoczpcOdey08DY2lCfBYMviECds1Mm.png" />
+      <div className="w-full px-4">
+        <ImageResult generatedImageUrl="https://jxgoqlyxc3jqoq07.public.blob.vercel-storage.com/kzjqciV-JoczpcOdey08DY2lCfBYMviECds1Mm.png" />
+      </div>
       <GeneratedCount />
     </>
   );
 }
 
-export async function GeneratedCount() {
+async function GeneratedCount() {
   const count = await kv.dbsize();
   return (
     <p className="z-30 mt-4 text-center text-sm text-white">

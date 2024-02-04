@@ -7,6 +7,7 @@ import { PropsWithChildren } from 'react';
 
 import { className } from '@/app/lib/className';
 import { interFont, playfairFont } from '@/app/lib/fonts';
+import { BuyMeACoffeeIcon } from '@/app/ui/Icons/BuyMeACoffeeIcon';
 import { Sparkles } from '@/app/ui/Sparkles';
 
 import '@/app/lib/envSchema';
@@ -36,10 +37,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
             interFont.variable,
           )}
         >
-          <div className="flex min-h-screen max-w-xl flex-col items-center justify-center">
+          <div className="relative flex min-h-screen max-w-xl flex-col items-center justify-center">
             <Header />
 
             {children}
+
+            <Footer />
           </div>
         </body>
       </html>
@@ -62,5 +65,32 @@ function Header() {
         Turn your ideas into Van Gogh&apos;s Starry Night
       </p>
     </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="w-full py-5 text-center">
+      <p className="text-white">
+        Built by{' '}
+        <a
+          className="font-semibold text-white underline-offset-4 hover:underline"
+          href="https://twitter.com/lauradotjs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Laura Beatris
+        </a>
+      </p>
+      <a
+        href="https://www.buymeacoffee.com/laurabeatris"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mx-auto mt-2 flex max-w-fit items-center justify-center space-x-2 rounded-lg border border-gray-200 bg-white px-6 py-2 transition-all duration-75 hover:scale-105"
+      >
+        <BuyMeACoffeeIcon className="h-6 w-6" />
+        <p className="font-medium text-gray-600">Buy me a coffee</p>
+      </a>
+    </footer>
   );
 }
