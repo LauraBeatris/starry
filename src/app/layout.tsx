@@ -17,8 +17,7 @@ export const metadata: Metadata = {
     template: 'Starry | %s',
     default: 'Starry',
   },
-  description:
-    "Turn your ideas into Van Gogh's Starry Night.",
+  description: "Turn your ideas into Van Gogh's Starry Night.",
   metadataBase: new URL('https://my-starry.com'),
 };
 
