@@ -49,13 +49,13 @@ This application leverages an AI model, specifically [Stable Diffusion](https://
 
 ### 2. Install [ngrok](https://ngrok.com/) to listen to Replicate's webhook events while developing locally
 
-### 2. Cloning the repository 
+### 2. Cloning the repository
 
 ```bash
 git clone
 ```
 
-### 3. Creating a account on the services listed on `Powered by` section above
+### 3. Creating accounts on the services listed on the `Powered by` section above
 
 ### 4. Storing API keys in .env file.
 

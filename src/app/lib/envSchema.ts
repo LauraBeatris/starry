@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/node';
 import z from 'zod';
 
 const envVariableSchema = z.string().trim().min(1);
@@ -34,11 +35,15 @@ const envServerParsed = envServerSchema.safeParse({
 } satisfies EnvServerSchema);
 
 if (!envServerParsed.success) {
-  // TODO - Improve logging + configure Sentry
-  // Report to Sentry
-  console.error(envServerParsed.error.issues);
+  const errorMessage = 'Error when parsing environment variables';
 
-  throw new Error('There is an error with the server environment variables');
+  Sentry.captureException(errorMessage, {
+    extra: {
+      issues: envServerParsed.error.issues,
+    },
+  });
+
+  throw new Error(errorMessage);
 }
 
 export const envServerData = envServerParsed.data;
