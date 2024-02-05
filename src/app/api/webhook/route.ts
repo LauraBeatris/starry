@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/node';
 import { put } from '@vercel/blob';
 import { kv } from '@vercel/kv';
 import { NextResponse } from 'next/server';
@@ -27,23 +28,57 @@ export async function POST(req: Request) {
   );
 
   if (!parsedSearchParams.success) {
-    return new NextResponse('Invalid params', { status: 400 });
+    const errorMessage = 'Invalid request params';
+
+    Sentry.captureException(errorMessage, {
+      extra: {
+        validationError: parsedSearchParams.error,
+      },
+    });
+
+    return new NextResponse(errorMessage, { status: 400 });
   }
 
   const { id, secret } = parsedSearchParams.data;
 
   if (secret !== process.env.REPLICATE_WEBHOOK_SECRET) {
-    return new NextResponse('Invalid secret', { status: 401 });
+    const errorMessage = 'Invalid secret';
+
+    Sentry.captureException(errorMessage, {
+      extra: {
+        secret,
+      },
+    });
+
+    return new NextResponse(errorMessage, { status: 401 });
   }
 
-  const parsedWebhookPayload = WebhookPayloadSchema.safeParse(await req.json());
+  const payload = await req.json();
+  const parsedWebhookPayload = WebhookPayloadSchema.safeParse(payload);
+
   if (!parsedWebhookPayload.success) {
-    return new NextResponse('Invalid payload', { status: 400 });
+    const errorMessage = 'Invalid payload';
+
+    Sentry.captureException(errorMessage, {
+      extra: {
+        payload,
+      },
+    });
+
+    return new NextResponse(errorMessage, { status: 400 });
   }
 
   const { output } = parsedWebhookPayload.data;
   if (!output) {
-    return new NextResponse('Missing output', { status: 400 });
+    const errorMessage = 'Missing Replicate output within response';
+
+    Sentry.captureException(errorMessage, {
+      extra: {
+        payload,
+      },
+    });
+
+    return new NextResponse(errorMessage, { status: 400 });
   }
 
   const file = await fetch(output[0]).then((res) => res.blob());
