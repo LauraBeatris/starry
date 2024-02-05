@@ -1,5 +1,6 @@
 import { kv } from '@vercel/kv';
 import { Metadata } from 'next';
+import { unstable_noStore } from 'next/cache';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -48,6 +49,8 @@ export default async function GenerateImageResultPage({
     id: string;
   };
 }) {
+  unstable_noStore()
+
   const data = await kv.hgetall<{
     generatedImageUrl: string;
   }>(params.id);
