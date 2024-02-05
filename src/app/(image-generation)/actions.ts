@@ -60,6 +60,8 @@ export async function generateImage(_prevState: FormState, formData: FormData) {
 
   const { prompt } = parsedFormData.data;
 
+  console.info('Webhook URL', REPLICATE_WEBHOOK_URL)
+
   await Promise.all([
     kv.hset(id, {
       prompt,
