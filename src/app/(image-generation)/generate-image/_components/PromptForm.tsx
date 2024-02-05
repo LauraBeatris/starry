@@ -20,11 +20,12 @@ declare global {
 
 interface PromptFormProps {
   initialPromptText?: string;
+  disabled?: boolean;
 }
 
 const initialFormState = { message: '', errors: {} };
 
-export function PromptForm({ initialPromptText }: PromptFormProps) {
+export function PromptForm({ disabled, initialPromptText }: PromptFormProps) {
   const [prompt, setPrompt] = useState(initialPromptText ?? '');
   const [placeholderPrompt, setPlaceholderPrompt] = useState('');
 
@@ -80,7 +81,7 @@ export function PromptForm({ initialPromptText }: PromptFormProps) {
           className="flex-1 resize-none outline-none"
         />
 
-        <SubmitButton />
+        <SubmitButton disabled={disabled} />
       </form>
 
       <div
@@ -111,18 +112,24 @@ export function PromptForm({ initialPromptText }: PromptFormProps) {
   );
 }
 
-const SubmitButton = () => {
+interface SubmitButtonProps {
+  disabled?: boolean;
+}
+
+const SubmitButton = ({ disabled }: SubmitButtonProps) => {
   const { pending } = useFormStatus();
+
+  const isDisabled = disabled || pending;
 
   return (
     <button
       className={className(
         'group rounded-lg p-2.5',
-        pending
+        isDisabled
           ? 'cursor-disabled bg-gray-100'
           : 'transition-all hover:bg-gray-100 active:bg-gray-200',
       )}
-      disabled={pending}
+      disabled={isDisabled}
     >
       {pending ? (
         <LoadingCircleIcon />

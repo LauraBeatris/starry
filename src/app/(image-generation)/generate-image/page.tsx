@@ -10,16 +10,7 @@ export const metadata: Metadata = {
   title: 'Generate image with a prompt',
 };
 
-export default async function GenerateImagePage() {
-  return (
-    <>
-      <GenerateImageForm imagePlaceholder="https://xd2kcvzsdpeyx1gu.public.blob.vercel-storage.com/KDSkFdf-1vP84nn4Lm3Tp9J6jfRtMnOKNPlBdm.png" />
-      <RemainingGenerations />
-    </>
-  );
-}
-
-async function RemainingGenerations() {
+async function getRemainingGenerations() {
   const userResult = await getUser();
   assert(E.isRight(userResult));
 
@@ -35,18 +26,36 @@ async function RemainingGenerations() {
   const diff = Math.abs(resetDate.getTime() - new Date().getTime());
   const hours = Math.floor(diff / 1000 / 60 / 60);
   const minutes = Math.floor(diff / 1000 / 60) - hours * 60;
-
   const remainingGenerations = 5 - Number(usedGenerations);
 
+  return {
+    remainingGenerations: Math.max(remainingGenerations, 0),
+    hours,
+    minutes,
+  };
+}
+
+export default async function GenerateImagePage() {
+  const { hours, minutes, remainingGenerations } =
+    await getRemainingGenerations();
+
   return (
-    <p className="z-30 mt-2 text-center font-light text-white">
-      You have{' '}
-      <span className="font-semibold">{remainingGenerations} generations</span>{' '}
-      left today. Your generation
-      {Number(remainingGenerations) > 1 ? 's' : ''} will renew in{' '}
-      <span className="font-semibold">
-        {hours} hours and {minutes} minutes.
-      </span>
-    </p>
+    <>
+      <GenerateImageForm
+        remainingGenerations={remainingGenerations}
+        imagePlaceholder="https://xd2kcvzsdpeyx1gu.public.blob.vercel-storage.com/KDSkFdf-1vP84nn4Lm3Tp9J6jfRtMnOKNPlBdm.png"
+      />
+      <p className="z-30 mt-2 text-center font-light text-white">
+        You have{' '}
+        <span className="font-semibold">
+          {remainingGenerations} generations
+        </span>{' '}
+        left today. Your generation
+        {Number(remainingGenerations) > 1 ? 's' : ''} will renew in{' '}
+        <span className="font-semibold">
+          {hours} hours and {minutes} minutes.
+        </span>
+      </p>
+    </>
   );
 }
