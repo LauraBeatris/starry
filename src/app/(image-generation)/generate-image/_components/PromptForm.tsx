@@ -91,10 +91,7 @@ export function PromptForm({ initialPromptText }: PromptFormProps) {
       >
         {state.errors?.prompt &&
           state.errors.prompt.map((error: string) => (
-            <p
-              className="text-md mt-2 font-bold text-red-600"
-              key={error}
-            >
+            <p className="text-md mt-2 font-bold text-red-600" key={error}>
               {error}
             </p>
           ))}

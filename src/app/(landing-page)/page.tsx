@@ -20,7 +20,7 @@ export default function HomePage() {
 async function GeneratedCount() {
   const count = await kv.dbsize();
   return (
-    <p className="z-30 mt-4 text-center text-sm text-white">
+    <p className="z-30 mt-4 text-center text-sm text-yellow-50">
       Over {count} snapshots of creativity and memories, and still counting!
     </p>
   );

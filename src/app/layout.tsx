@@ -71,10 +71,10 @@ function Header() {
 function Footer() {
   return (
     <footer className="w-full py-5 text-center">
-      <p className="text-white">
+      <p className="text-yellow-50">
         Built by{' '}
         <a
-          className="font-semibold text-white underline-offset-4 hover:underline"
+          className="font-semibold text-yellow-50 underline-offset-4 hover:underline"
           href="https://twitter.com/lauradotjs"
           target="_blank"
           rel="noopener noreferrer"
@@ -86,7 +86,7 @@ function Footer() {
         href="https://www.buymeacoffee.com/laurabeatris"
         target="_blank"
         rel="noopener noreferrer"
-        className="mx-auto mt-2 flex max-w-fit items-center justify-center space-x-2 rounded-lg border border-gray-200 bg-white px-6 py-2 transition-all duration-75 hover:scale-105"
+        className="mx-auto mt-2 flex max-w-fit items-center justify-center space-x-2 rounded-lg border border-gray-200 bg-yellow-50 px-6 py-2 transition-all duration-75 hover:scale-105"
       >
         <BuyMeACoffeeIcon className="h-6 w-6" />
         <p className="font-medium text-gray-600">Buy me a coffee</p>
