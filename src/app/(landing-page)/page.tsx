@@ -10,7 +10,7 @@ export default function HomePage() {
     <>
       <AuthorizationLink />
       <div className="w-full px-4">
-        <ImageResult generatedImageUrl="https://jxgoqlyxc3jqoq07.public.blob.vercel-storage.com/kzjqciV-JoczpcOdey08DY2lCfBYMviECds1Mm.png" />
+        <ImageResult generatedImageUrl="https://gykxknv4mjb05cik.public.blob.vercel-storage.com/image-generated-1D2e9wR2x1StAMANeQaXHDUsFydV4u.png" />
       </div>
       <GeneratedCount />
     </>
