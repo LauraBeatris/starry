@@ -18,10 +18,8 @@ export const metadata: Metadata = {
     default: 'Starry',
   },
   description:
-    "Turn your ideas into Van Gogh's Starry Night. Powered by Vercel and Replicate.",
-  // TODO - Update URL with correct domain
-  // TODO - Implement OG social image
-  metadataBase: new URL('https://starry.vercel.app'),
+    "Turn your ideas into Van Gogh's Starry Night.",
+  metadataBase: new URL('https://my-starry.com'),
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
