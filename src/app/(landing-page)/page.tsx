@@ -1,4 +1,5 @@
 import { kv } from '@vercel/kv';
+import { unstable_noStore } from 'next/cache';
 import Link from 'next/link';
 
 import { AuthButton } from './_components/AuthButton';
@@ -18,6 +19,8 @@ export default function HomePage() {
 }
 
 async function GeneratedCount() {
+  unstable_noStore();
+
   const count = await kv.dbsize();
   return (
     <p className="z-30 mt-4 text-center text-sm text-yellow-50">

@@ -2,6 +2,7 @@ import { kv } from '@vercel/kv';
 import assert from 'assert';
 import * as E from 'fp-ts/lib/Either';
 import { Metadata } from 'next';
+import { unstable_noStore } from 'next/cache';
 
 import { GenerateImageForm } from './_components/GenerateImageForm';
 import { getUser } from '@/app/lib/auth';
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 async function getRemainingGenerations() {
+  unstable_noStore();
+
   const userResult = await getUser();
   assert(E.isRight(userResult));
 
