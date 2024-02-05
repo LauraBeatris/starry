@@ -1,5 +1,6 @@
 'use server';
 
+import * as Sentry from '@sentry/node';
 import { kv } from '@vercel/kv';
 import * as E from 'fp-ts/lib/Either';
 import { revalidatePath } from 'next/cache';
@@ -10,7 +11,6 @@ import * as z from 'zod';
 import { getUser } from '@/app/lib/auth';
 import { nanoid } from '@/app/lib/nanoid';
 import { performRateLimitByUser } from '@/app/lib/rateLimiter';
-import { REPLICATE_WEBHOOK_URL } from '@/app/lib/replicate';
 
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
@@ -28,6 +28,11 @@ export type FormState = {
   };
   message?: string | null;
 };
+
+const webhookUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://my-starry.com/api/webhook'
+    : `${process.env.NGROK_URL}/api/webhook`;
 
 export async function generateImage(_prevState: FormState, formData: FormData) {
   const parsedFormData = GenerateImageFormSchema.safeParse(
@@ -76,7 +81,7 @@ export async function generateImage(_prevState: FormState, formData: FormData) {
         guidance_scale: 7.5,
         num_inference_steps: 50,
       },
-      webhook: `${REPLICATE_WEBHOOK_URL}?id=${id}&secret=${process.env.REPLICATE_WEBHOOK_SECRET}`,
+      webhook: `${webhookUrl}?id=${id}&secret=${process.env.REPLICATE_WEBHOOK_SECRET}`,
       webhook_events_filter: ['completed'],
     }),
   ]);
