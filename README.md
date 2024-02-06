@@ -55,7 +55,7 @@ This application leverages an AI model, specifically [Stable Diffusion](https://
 git clone
 ```
 
-### 3. Creating accounts on the services listed on the `Powered by` section above
+### 3. Sign up for the services mentioned in the [Powered by](#powered-by) section
 
 ### 4. Storing API keys in .env file.
 
