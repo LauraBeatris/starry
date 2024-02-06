@@ -45,13 +45,15 @@ export async function generateImage(_prevState: FormState, formData: FormData) {
     redirect('/');
   }
 
-  const { user } = getUserResult.right;
-  const rateLimitResult = await performRateLimitByUser(user);
-
-  if (E.isLeft(rateLimitResult)) {
-    return {
-      message: rateLimitResult.left,
-    };
+  if (process.env.RATE_LIMIT_ENABLED){
+    const { user } = getUserResult.right;
+    const rateLimitResult = await performRateLimitByUser(user);
+  
+    if (E.isLeft(rateLimitResult)) {
+      return {
+        message: rateLimitResult.left,
+      };
+    }
   }
 
   const id = nanoid();
