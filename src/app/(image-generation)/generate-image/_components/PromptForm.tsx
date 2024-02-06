@@ -26,8 +26,8 @@ interface PromptFormProps {
 const initialFormState = { message: '', errors: {} };
 
 export function PromptForm({ disabled, initialPromptText }: PromptFormProps) {
-  const [prompt, setPrompt] = useState(initialPromptText ?? '');
-  const [placeholderPrompt, setPlaceholderPrompt] = useState('');
+  const [prompt, setPrompt] = useState('');
+  const [placeholderPrompt, setPlaceholderPrompt] = useState(initialPromptText);
 
   const [state, dispatch] = useFormState(generateImage, initialFormState);
 
@@ -36,16 +36,8 @@ export function PromptForm({ disabled, initialPromptText }: PromptFormProps) {
   const { formRef, onKeyDown } = useEnterSubmit();
 
   useEffect(() => {
-    if (initialPromptText && textareaRef.current) {
+    if (textareaRef.current) {
       textareaRef.current.select();
-    }
-  }, [initialPromptText]);
-
-  useEffect(() => {
-    if (initialPromptText) {
-      setPlaceholderPrompt('');
-    } else {
-      setPlaceholderPrompt(promptmaker());
     }
   }, [initialPromptText]);
 
@@ -72,7 +64,7 @@ export function PromptForm({ disabled, initialPromptText }: PromptFormProps) {
           placeholder={placeholderPrompt}
           onChange={(e) => setPrompt(e.currentTarget.value)}
           onKeyDown={(e) => {
-            if (e.key === 'Tab' && e.currentTarget.value === '') {
+            if (placeholderPrompt && e.key === 'Tab' && e.currentTarget.value === '') {
               setPrompt(placeholderPrompt);
               e.preventDefault();
             }
