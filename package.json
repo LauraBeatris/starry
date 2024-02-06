@@ -20,7 +20,7 @@
     "clsx": "^2.0.0",
     "fp-ts": "^2.16.2",
     "jose": "^5.2.0",
-    "next": "latest",
+    "next": "canary",
     "promptmaker": "^1.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
