@@ -15,6 +15,7 @@ const envServerSchema = z.object({
   KV_URL: envVariableSchema,
   BLOB_READ_WRITE_TOKEN: envVariableSchema,
   NEXT_PUBLIC_SENTRY_DSN: envVariableSchema,
+  REPLICATE_WEBHOOK_URL: envVariableSchema,
 });
 
 type EnvServerSchema = z.infer<typeof envServerSchema>;
@@ -32,6 +33,7 @@ const envServerParsed = envServerSchema.safeParse({
   KV_URL: process.env.KV_URL,
   BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
   NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  REPLICATE_WEBHOOK_URL: process.env.REPLICATE_WEBHOOK_URL,
 } satisfies EnvServerSchema);
 
 if (!envServerParsed.success) {

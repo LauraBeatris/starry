@@ -1,9 +1,7 @@
 'use server';
 
-import * as Sentry from '@sentry/node';
 import { kv } from '@vercel/kv';
 import * as E from 'fp-ts/lib/Either';
-import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import Replicate from 'replicate';
 import * as z from 'zod';
@@ -28,11 +26,6 @@ export type FormState = {
   };
   message?: string | null;
 };
-
-const webhookUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://my-starry.com/api/webhook'
-    : `${process.env.NGROK_URL}/api/webhook`;
 
 export async function generateImage(_prevState: FormState, formData: FormData) {
   const parsedFormData = GenerateImageFormSchema.safeParse(
@@ -81,11 +74,10 @@ export async function generateImage(_prevState: FormState, formData: FormData) {
         guidance_scale: 7.5,
         num_inference_steps: 50,
       },
-      webhook: `${webhookUrl}?id=${id}&secret=${process.env.REPLICATE_WEBHOOK_SECRET}`,
+      webhook: `${process.env.REPLICATE_WEBHOOK_URL}?id=${id}&secret=${process.env.REPLICATE_WEBHOOK_SECRET}`,
       webhook_events_filter: ['completed'],
     }),
   ]);
 
-  revalidatePath('/generate-image');
   redirect(`/generate-image/result/${id}`);
 }

@@ -12,8 +12,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/github",
-        destination: "https://github.com/laurabeatris/starry",
+        source: '/github',
+        destination: 'https://github.com/laurabeatris/starry',
         permanent: false,
       },
     ];
