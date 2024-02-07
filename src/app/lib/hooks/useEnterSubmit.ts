@@ -1,4 +1,4 @@
-import { useRef, type RefObject } from 'react';
+import { useRef, type RefObject, ElementRef } from 'react';
 
 /**
  * A custom React hook that facilitates form submission via the Enter key.
@@ -12,7 +12,7 @@ export default function useEnterSubmit(): {
   formRef: RefObject<HTMLFormElement>;
   onKeyDown: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
 } {
-  const formRef = useRef<HTMLFormElement>(null);
+  const formRef = useRef<ElementRef<'form'>>(null);
 
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLTextAreaElement>,

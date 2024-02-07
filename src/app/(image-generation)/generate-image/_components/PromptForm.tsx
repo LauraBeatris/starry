@@ -3,7 +3,7 @@
 import analytics from '@vercel/analytics';
 // @ts-ignore
 import promptmaker from 'promptmaker';
-import { useEffect, useRef, useState } from 'react';
+import { ElementRef, useEffect, useRef, useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 
 import { generateImage } from '@/app/(image-generation)/actions';
@@ -31,7 +31,7 @@ export function PromptForm({ disabled, initialPromptText }: PromptFormProps) {
 
   const [state, dispatch] = useFormState(generateImage, initialFormState);
 
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const textareaRef = useRef<ElementRef<'textarea'>>(null);
 
   const { formRef, onKeyDown } = useEnterSubmit();
 
