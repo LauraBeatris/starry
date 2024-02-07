@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  Turn your ideas into Van Gogh arts via AI model
+  Turn your ideas into Van Gogh's Starry Night
 </p>
 
 <p align="center">
