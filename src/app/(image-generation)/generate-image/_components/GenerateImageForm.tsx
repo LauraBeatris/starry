@@ -3,7 +3,6 @@ import promptmaker from 'promptmaker';
 
 import { PromptForm } from './PromptForm';
 
-// TODO - Improve props definition to avoid impossible states
 type GenerateImageFormProps = {
   imagePlaceholder?: string;
   remainingGenerations: number;

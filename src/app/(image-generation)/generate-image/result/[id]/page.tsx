@@ -49,7 +49,7 @@ export default async function GenerateImageResultPage({
     id: string;
   };
 }) {
-  unstable_noStore()
+  unstable_noStore();
 
   const data = await kv.hgetall<{
     generatedImageUrl: string;
