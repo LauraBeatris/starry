@@ -27,7 +27,7 @@ This application leverages an AI model, specifically [Stable Diffusion](https://
 <!-- TODO -> Add link -->
 
 - [Video explanation on how I built this application]()
-- [Launch demo video](https://work-os.slack.com/archives/C06FKD58VHP/p1707229394539739?thread_ts=1706544852.887569&cid=C06FKD58VHP)
+- [Launch demo video](https://x.com/lauradotjs/status/1754970380547117314?s=20)
 
 ## Powered by
 
