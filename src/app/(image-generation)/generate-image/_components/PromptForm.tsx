@@ -2,7 +2,6 @@
 
 import analytics from '@vercel/analytics';
 // @ts-ignore
-import promptmaker from 'promptmaker';
 import { ElementRef, useEffect, useRef, useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 
