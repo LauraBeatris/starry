@@ -9,13 +9,15 @@ import { DownloadButton } from '../../_components/DownloadButton';
 import { ImageResult } from '../../_components/ImageResult';
 import { ArrowLeftIcon } from '@/app/ui/Icons/ArrowLeftIcon';
 
-export async function generateMetadata({
-  params,
-}: {
+interface GenerateMetadataOptions {
   params: {
     id: string;
   };
-}): Promise<Metadata | undefined> {
+}
+
+export async function generateMetadata({
+  params,
+}: GenerateMetadataOptions): Promise<Metadata | undefined> {
   const data = await kv.hgetall<{ prompt: string; generatedImageUrl?: string }>(
     params.id,
   );
@@ -42,13 +44,15 @@ export async function generateMetadata({
   };
 }
 
-export default async function GenerateImageResultPage({
-  params,
-}: {
+interface GenerateImageResultPageProps {
   params: {
     id: string;
   };
-}) {
+}
+
+export default async function GenerateImageResultPage({
+  params,
+}: GenerateImageResultPageProps) {
   unstable_noStore();
 
   const data = await kv.hgetall<{

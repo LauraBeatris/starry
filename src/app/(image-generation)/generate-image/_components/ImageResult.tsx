@@ -16,7 +16,7 @@ export function ImageResult({ generatedImageUrl }: ImageResultProps) {
   const router = useRouter();
 
   /**
-   * Internal to keep refreshing/pooling the page until the image is
+   * Interval to keep refreshing/pooling the page until the image is
    * stored on Vercel blob storage
    */
   useEffect(() => {
